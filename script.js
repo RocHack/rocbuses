@@ -1,10 +1,10 @@
-$(document).ready(function() {
-    // Set up a listener for each line color box
-    $("div.lines a").click(function(e) {
-        e.preventDefault();
-
-        var line = $(this).attr("href").replace("#", "");
-        $(".schedule").hide();
-        $("#schedule_" + line).show();
-    });
-});
+function onHashChange() {
+	var line = location.hash.substr(1);
+	var lines = ["red", "green", "orange", "blue", "silver", "gold"];
+	if (lines.indexOf(line) != -1) {
+		// let css handle showing and hiding the schedules
+		document.body.className = "line_" + line + "_selected";
+	}
+}
+onHashChange();
+window.addEventListener("hashchange", onHashChange, false);

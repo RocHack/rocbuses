@@ -56,6 +56,7 @@ body {
 }
 
 .schedule {
+	display: none;
     width: 100%;
     overflow: auto;
     border-spacing: 0px;
@@ -80,3 +81,11 @@ body {
     border-bottom: 1px solid #E5E5E5;
 }
 
+.line_red_selected #red,
+.line_green_selected #green,
+.line_orange_selected #orange,
+.line_blue_selected #blue,
+.line_silver_selected #silver,
+.line_gold_selected #gold {
+	display: block;
+}
