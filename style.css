@@ -17,10 +17,10 @@ body {
 
 .instruction {
     margin: 15px auto 15px auto;
-    width: 600px;
     font-size: 24px;
     text-align: left;
     color: #505050;
+	vertical-align: 100%;
 }
 
 .line_box {
@@ -56,6 +56,8 @@ body {
 }
 
 .schedule {
+    width: 100%;
+    overflow: auto;
     border-spacing: 0px;
     margin: 0px auto 0px auto;
 }
