@@ -1,0 +1,80 @@
+body {
+    background: #FFF;
+    color: #1E1E1E;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.container {
+    margin: 10px auto 0px auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 42px;
+}
+
+.instruction {
+    margin: 15px auto 15px auto;
+    width: 600px;
+    font-size: 24px;
+    text-align: left;
+    color: #505050;
+}
+
+.line_box {
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.line_red {
+    background-color: #D60021;
+}
+
+.line_green {
+    background: #1C9B41;
+}
+
+.line_blue {
+    background: #1469B1;
+}
+
+.line_silver {
+    background: #B6C1B9;
+}
+
+.line_gold {
+    background: #FDC425;
+}
+
+.line_orange {
+    background: #F17A26;
+}
+
+.schedule {
+    border-spacing: 0px;
+    margin: 0px auto 0px auto;
+}
+
+.schedule tr td:nth-child(1) {
+    border-right: 1px solid #1E1E1E;
+    text-align: left;
+}
+
+.schedule tr:nth-last-child(1) td {
+    border-bottom: 0px;
+}
+
+.schedule tr td:nth-child(2n+3) {
+    background: #E5EFEF;
+}
+
+.schedule td {
+    padding: 5px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
