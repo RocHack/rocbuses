@@ -1,0 +1,49 @@
+[
+    {
+        "title": "Bus Leaves Eastman Living Center to Rush Rhees Library",
+        "date": "M-F",
+        "stops": 
+        [
+            {
+                "place": "Eastman Living Center",
+                "times": [
+                    "7:30a",
+                    "8:15a",
+                    "9:00a",
+                    "9:45a",
+                    "10:35a",
+                    "11:25a",
+                    "12:05p",
+                    "12:45p",
+                    "1:30p",
+                    "2:15p",
+                    "2:55p",
+                    "3:35p",
+                    "4:15p",
+                    "5:05p",
+                    "5:45p"
+                ]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [
+                    "7:50a",
+                    "8:35a",
+                    "9:20a",
+                    "10:05a",
+                    "10:55a",
+                    "11:45a",
+                    "12:25p",
+                    "1:05p",
+                    "1:50p",
+                    "2:35p",
+                    "3:15p",
+                    "3:55p",
+                    "4:35p",
+                    "5:25p",
+                    "6:05p"
+                ]
+            }
+        ]
+    }
+]
