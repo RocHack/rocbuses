@@ -21,29 +21,29 @@ var lines = "red green orange blue silver gold".split(" ");
 var currentScheduleEl;
 function onHashChange() {
     var line = location.hash.substr(1);
-	var isLine = (lines.indexOf(line) != -1);
-	var scheduleEl = document.getElementById(line);
+    var isLine = (lines.indexOf(line) != -1);
+    var scheduleEl = document.getElementById(line);
 
-	// Update styles
-	document.body.className = isLine ? "line_selected" : "";
+    // Update styles
+    document.body.className = isLine ? "line_selected" : "";
 
-	// hide old schedule
-	if (currentScheduleEl) {
-		resetScrolling(currentScheduleEl);
-		currentScheduleEl.style.display = "none";
-	}
+    // hide old schedule
+    if (currentScheduleEl) {
+        resetScrolling(currentScheduleEl);
+        currentScheduleEl.style.display = "none";
+    }
 
     if (isLine) {
-		// Show the new schedule
-		currentScheduleEl = scheduleEl;
-		if (currentScheduleEl) {
-			currentScheduleEl.style.display = "block";
-			// If the table is not visible, the browser will not scroll to it.
-			// So we scroll for it.
-			currentScheduleEl.scrollIntoView();
-			initScrolling(currentScheduleEl);
-		}
-	}
+        // Show the new schedule
+        currentScheduleEl = scheduleEl;
+        if (currentScheduleEl) {
+            currentScheduleEl.style.display = "block";
+            // If the table is not visible, the browser will not scroll to it.
+            // So we scroll for it.
+            currentScheduleEl.scrollIntoView();
+            initScrolling(currentScheduleEl);
+        }
+    }
 }
 onHashChange();
 window.addEventListener("hashchange", onHashChange, false);
@@ -52,16 +52,16 @@ setTimeout(onHashChange, 10);
 loadJSON("schedules.json", function (schedules) {
     if (!schedules) {
         // Unable to load schedules
-		document.body.appendChild(
-			document.createTextNode("Unable to load schedules!"));
+        document.body.appendChild(
+            document.createTextNode("Unable to load schedules!"));
         return;
     }
-	var schedulesEl = document.getElementById("schedules");
-	for (var line in schedules) {
-		var scheduleEl = renderSchedule(line, schedules[line]);
-		schedulesEl.appendChild(scheduleEl);
-	}
-	onHashChange();
+    var schedulesEl = document.getElementById("schedules");
+    for (var line in schedules) {
+        var scheduleEl = renderSchedule(line, schedules[line]);
+        schedulesEl.appendChild(scheduleEl);
+    }
+    onHashChange();
 });
 
 // Render schedules for a line
@@ -76,15 +76,15 @@ function renderSchedule(line, schedule) {
     for (var i = 0; i < schedule.length; i++) {
         var route = schedule[i];
         var tableOuter = renderRoute(route);
-		scheduleEl.appendChild(tableOuter);
+        scheduleEl.appendChild(tableOuter);
     }
     return scheduleEl;
 }
 
 // Create a table for a route
 function renderRoute(data) {
-	var routeEl = document.createElement("div");
-	routeEl.className = "route";
+    var routeEl = document.createElement("div");
+    routeEl.className = "route";
 
     // Create the table
     var table = document.createElement("table");
@@ -115,7 +115,7 @@ function renderRoute(data) {
     }
 
     routeEl.appendChild(table);
-	return routeEl;
+    return routeEl;
 }
 
 function insertTimes(tr, data) {
@@ -136,16 +136,16 @@ function insertTimes(tr, data) {
 var scrollLeft,
     maxTHWidth,
     thWidth,
-	ths = [];
+    ths = [];
 
 function initTH(th) {
-	th.className = "fancyscroll";
+    th.className = "fancyscroll";
 }
 
 // This has to to be reset when the table is hidden, otherwise 
 // the space taken up by each TH collapses.
 function resetTH(th) {
-	th.className = "";
+    th.className = "";
     th.style.width = "";
 }
 
@@ -154,17 +154,17 @@ function updateTH(th) {
 }
 
 function initScrolling(scheduleEl) {
-	ths = [].slice.call(scheduleEl.getElementsByTagName("th"));
+    ths = [].slice.call(scheduleEl.getElementsByTagName("th"));
     ths.forEach(resetTH);
-	setTimeout(function () {
-		maxTHWidth = ths[0].offsetWidth - 6; // subtract padding & border
-		onScheduleScroll.call(scheduleEl);
-		ths.forEach(initTH);
-	}, 10);
+    setTimeout(function () {
+        maxTHWidth = ths[0].offsetWidth - 6; // subtract padding & border
+        onScheduleScroll.call(scheduleEl);
+        ths.forEach(initTH);
+    }, 10);
 }
 
 function resetScrolling(scheduleEl) {
-	ths.forEach(resetTH);
+    ths.forEach(resetTH);
 }
 
 function onScheduleScroll(e) {

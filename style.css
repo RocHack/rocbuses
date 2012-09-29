@@ -94,6 +94,7 @@ body {
     text-overflow: ellipsis;
     overflow: hidden;
     background-color: white;
+    white-space: nowrap;
 }
 
 .schedule tr th.fancyscroll {
@@ -112,10 +113,6 @@ body {
 .schedule td, .schedule th {
     padding: 5px;
     border-bottom: 1px solid #E5E5E5;
-}
-
-.schedule th {
-    white-space: nowrap;
 }
 
 body:not(.line_selected) #schedule_title {
