@@ -61,7 +61,7 @@ body {
 }
 
 .schedule h3 {
-	position: absolute;
+    position: absolute;
     text-align: left;
     font-size: 18px;
     margin: 0 0 8px 0;
@@ -69,8 +69,9 @@ body {
 }
 
 .schedule h3.wrapfix {
-	visibility: hidden;
-	position: static;
+    visibility: hidden;
+    margin-right: -8px;
+    position: static;
 }
 
 .schedule table {

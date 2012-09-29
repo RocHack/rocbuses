@@ -22,6 +22,10 @@ var currentScheduleEl;
 function onHashChange() {
     var line = location.hash.substr(1);
 	var isLine = (lines.indexOf(line) != -1);
+	var scheduleEl = document.getElementById(line);
+
+	// Update styles
+	document.body.className = isLine ? "line_selected" : "";
 
 	// hide old schedule
 	if (currentScheduleEl) {
@@ -29,12 +33,9 @@ function onHashChange() {
 		currentScheduleEl.style.display = "none";
 	}
 
-	// Update styles
-	document.body.className = isLine ? "line_selected" : "";
-
     if (isLine) {
 		// Show the new schedule
-		currentScheduleEl = document.getElementById(line);
+		currentScheduleEl = scheduleEl;
 		if (currentScheduleEl) {
 			currentScheduleEl.style.display = "block";
 			// If the table is not visible, the browser will not scroll to it.
@@ -55,6 +56,7 @@ loadJSON("schedules.json", function (redSchedule) {
     }
     var scheduleEl = renderSchedule("red", redSchedule);
     document.getElementById("schedules").appendChild(scheduleEl);
+	onHashChange();
 });
 
 // Render schedules for a line
@@ -129,7 +131,7 @@ function insertTimes(tr, data) {
 var scrollLeft,
     maxTHWidth,
     thWidth,
-	ths;
+	ths = [];
 
 function initTH(th) {
 	th.className = "fancyscroll";
@@ -153,7 +155,7 @@ function initScrolling(scheduleEl) {
 		maxTHWidth = ths[0].offsetWidth - 6; // subtract padding & border
 		onScheduleScroll.call(scheduleEl);
 		ths.forEach(initTH);
-	}, 100);
+	}, 10);
 }
 
 function resetScrolling(scheduleEl) {
@@ -163,7 +165,7 @@ function resetScrolling(scheduleEl) {
 function onScheduleScroll(e) {
     var scheduleEl = this;
     scrollLeft = scheduleEl.scrollLeft;
-    thWidth = Math.max(maxTHWidth - scrollLeft, 64);
+    thWidth = Math.max(maxTHWidth - scrollLeft, 54);
     ths.forEach(updateTH);
 }
 
