@@ -115,6 +115,10 @@ body {
     border-bottom: 1px solid #E5E5E5;
 }
 
+.schedule td.pm {
+    font-weight: 600;
+}
+
 body:not(.line_selected) #schedule_title {
     display: none;
 }

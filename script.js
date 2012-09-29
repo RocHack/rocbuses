@@ -118,10 +118,17 @@ function renderRoute(data) {
     return routeEl;
 }
 
+function timeNumToStr(timeNum) {
+    return (Math.floor(timeNum / 100) % 12 || 12) +
+        ":" + ("0" + timeNum).substr(-2);
+}
+
 function insertTimes(tr, data) {
     for (var i = 0; i < data.length; i++) {
         var td = document.createElement("td");
-        td.appendChild(document.createTextNode(data[i]));
+        var timeNum = data[i];
+        td.className = timeNum < 1200 ? "am" : "pm";
+        td.appendChild(document.createTextNode(timeNumToStr(timeNum)));
         tr.appendChild(td);
     }
 }
