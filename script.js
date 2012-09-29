@@ -28,7 +28,7 @@ function onHashChange() {
 onHashChange();
 window.addEventListener("hashchange", onHashChange, false);
 
-loadJSON("bus_data/red.json", function (redSchedule) {
+loadJSON("schedules.json", function (redSchedule) {
     if (!redSchedule) {
         // Unable to load schedules
         return;
