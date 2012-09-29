@@ -141,8 +141,8 @@ function insertTimes(tr, data) {
 // This helps the user see which stop each row is for.
 
 var scrollLeft,
-    maxTHWidth,
     thWidth,
+    tables = [],
     ths = [];
 
 function initTH(th) {
@@ -161,12 +161,20 @@ function updateTH(th) {
 }
 
 function initScrolling(scheduleEl) {
+    tables = [].slice.call(scheduleEl.getElementsByTagName("table"));
+    tables.forEach(initTableScrolling);
     ths = [].slice.call(scheduleEl.getElementsByTagName("th"));
     ths.forEach(resetTH);
+}
+
+function initTableScrolling(table) {
+    table._ths = [].slice.call(table.getElementsByTagName("th"));
+    var firstTH = table._ths[0];
     setTimeout(function () {
-        maxTHWidth = ths[0].offsetWidth - 6; // subtract padding & border
-        onScheduleScroll.call(scheduleEl);
-        ths.forEach(initTH);
+        var maxTHWidth = firstTH.offsetWidth - 6; // subtract padding & border
+        table.setAttribute("data-max-th-width", maxTHWidth);
+        table._ths.forEach(initTH);
+        updateTable(table);
     }, 10);
 }
 
@@ -175,9 +183,14 @@ function resetScrolling(scheduleEl) {
 }
 
 function onScheduleScroll(e) {
-    var scheduleEl = this;
+    tables.forEach(updateTable);
+}
+
+function updateTable(table) {
+    var scheduleEl = table.parentNode.parentNode;
     scrollLeft = scheduleEl.scrollLeft;
-    thWidth = Math.max(maxTHWidth - scrollLeft, 54);
-    ths.forEach(updateTH);
+    var maxTHWidth = table.getAttribute("data-max-th-width");
+    thWidth = Math.max(maxTHWidth - scrollLeft, 58);
+    table._ths.forEach(updateTH);
 }
 
