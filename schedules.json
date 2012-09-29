@@ -217,8 +217,8 @@
             {
                 "place": "Wilmot",
 				"times": [717, 751, 829, 920, 954, 1026, 1058, 1154, 1212,
-				1230, 1254, 1336, 1408, 1442, 1500, 15251622, 1655, 1736, 1807,
-				1852, 1932, 2018, 2047, 2119, 2316, 41],
+				1230, 1254, 1336, 1408, 1442, 1500, 1525, 1622, 1655, 1736,
+				1807, 1852, 1932, 2018, 2047, 2119, 2316, 41],
 				"notes": {"±": [25, 26]}
             },
             {
@@ -230,16 +230,16 @@
             },
             {
                 "place": "Helen Wood Hall",
-				"times": [null, null, null, null, null, null, 1203, 1221, 1239,
-				1303, null, 1417, 1451, 1509, 1534, null, 1704, 1745, 1816,
-				1901, 1941, null, 2056, null, 2323, 48],
+				"times": [null, null, null, null, null, null, null, 1203, 1221,
+				1239, 1303, null, 1417, 1451, 1509, 1534, null, 1704, 1745,
+				1816, 1901, 1941, null, 2056, null, 2323, 48],
 				"notes": {"±": [25, 26]}
             },
             {
                 "place": "Kendrick & Crittenden",
-				"times": [null, null, null, null, null, null, 1204, 1222, 1240,
-				1304, null, 1418, 1452, 1510, 1535, null, 1705, 1746, 1817,
-				1902, 1942, null, 2057, null, null, null]
+				"times": [null, null, null, null, null, null, null, 1204, 1222,
+				1240, 1304, null, 1418, 1452, 1510, 1535, null, 1705, 1746,
+				1817, 1902, 1942, null, 2057, null, null, null]
             },
             {
                 "place": "Southside/University Park",
@@ -302,7 +302,8 @@
                 "place": "Helen Wood Hall",
 				"times": [735, 908, 847, 938, 1012, 1044, 1114, null, null,
 				null, null, 1354, null, null, null, null, 1640, null, null,
-				null, null, null, 2036, null, 2137, 2342, 107]
+				null, null, null, 2036, null, 2137, 2342, 107],
+				"notes": {"±": [25, 26]}
             },
             {
                 "place": "Goler & East",
