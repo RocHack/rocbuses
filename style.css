@@ -4,6 +4,8 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-size: 16px;
+    margin-right: 0;
+    margin-bottom: 0;
 }
 
 .container {
@@ -20,7 +22,14 @@ body {
     font-size: 24px;
     text-align: left;
     color: #505050;
-	vertical-align: 100%;
+    vertical-align: 100%;
+}
+
+@media only screen and (max-device-width: 480px) {
+    #lines {
+        /* fit boxes on iphone screen */
+        font-size: 8px;
+    }
 }
 
 .line_box {
@@ -56,30 +65,66 @@ body {
 }
 
 .schedule {
-    width: 100%;
+    display: none;
     overflow: auto;
+}
+
+.route {
+    margin-bottom: 1.5em;
+}
+
+.schedule h3 {
+    position: absolute;
+    text-align: left;
+    font-size: 18px;
+    margin: 0 0 8px 0;
+    font-weight: inherit;
+    margin-right: 8px;
+}
+
+.schedule h3.wrapfix {
+    visibility: hidden;
+    position: static;
+}
+
+.schedule table {
     border-spacing: 0px;
     margin: 0px auto 0px auto;
 }
 
-.schedule tr td:nth-child(1) {
+.schedule tr th {
     border-right: 1px solid #1E1E1E;
     text-align: left;
+    font-weight: inherit;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: white;
+    white-space: nowrap;
 }
 
-.schedule tr:nth-last-child(1) td {
+.schedule tr th.fancyscroll {
+    position: absolute;
+    padding-right: 0;
+}
+
+.schedule tr:last-child td {
     border-bottom: 0px;
 }
 
-.schedule tr td:nth-child(2n+3) {
+.schedule tr td:nth-child(2n+1) {
     background: #E5EFEF;
 }
 
-.schedule td {
+.schedule td, .schedule th {
     padding: 5px;
     border-bottom: 1px solid #E5E5E5;
 }
 
-#schedule_title {
+.schedule td.pm {
+    font-weight: 600;
+}
+
+body:not(.line_selected) #schedule_title {
     display: none;
 }
