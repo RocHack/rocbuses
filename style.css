@@ -25,13 +25,6 @@ body {
     vertical-align: 100%;
 }
 
-@media only screen and (max-device-width: 480px) {
-    #lines {
-        /* fit boxes on iphone screen */
-        font-size: 8px;
-    }
-}
-
 .line_box {
     display: inline-block;
     width: 75px;
@@ -92,7 +85,7 @@ body {
     margin: 0px auto 0px auto;
 }
 
-.schedule tr th {
+.schedule th {
     border-right: 1px solid #1E1E1E;
     text-align: left;
     font-weight: inherit;
@@ -103,7 +96,7 @@ body {
     white-space: nowrap;
 }
 
-.schedule tr th.fancyscroll {
+.schedule th.fancyscroll {
     position: absolute;
     padding-right: 0;
 }
