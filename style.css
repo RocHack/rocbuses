@@ -118,6 +118,10 @@ body {
     font-weight: 600;
 }
 
+.schedule .indicator-note {
+    font-size: inherit;
+}
+
 body:not(.line_selected) #schedule_title {
     display: none;
 }

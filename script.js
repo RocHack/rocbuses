@@ -109,26 +109,48 @@ function renderRoute(data) {
         th.appendChild(document.createTextNode(stop.place));
         tr.appendChild(th);
 
+        // Add notes to times
+        var notes = [];
+        for (var note in stop.notes) {
+            var times = stop.notes[note];
+            for (var j = 0; j < times.length; j++) {
+                notes[times[j]] = note;
+            }
+        }
         // Add times
-        insertTimes(tr, stop.times);
+        insertTimes(tr, stop.times, notes);
         table.appendChild(tr);
     }
 
     routeEl.appendChild(table);
+
+    // Add notes info
+    for (var indicator in data.notes) {
+        var noteEl = document.createElement("div");
+        noteEl.className = "indicator-note";
+        var note = indicator + " indicates " + data.notes[note];
+        noteEl.appendChild(document.createTextNode(note));
+        routeEl.appendChild(noteEl);
+    }
+
     return routeEl;
 }
 
+// Convert JSON military time to 12-hour time
 function timeNumToStr(timeNum) {
-    return (Math.floor(timeNum / 100) % 12 || 12) +
+    return timeNum == null ? "—" :
+        (Math.floor(timeNum / 100) % 12 || 12) +
         ":" + ("0" + timeNum).substr(-2);
 }
 
-function insertTimes(tr, data) {
+function insertTimes(tr, data, notes) {
     for (var i = 0; i < data.length; i++) {
         var td = document.createElement("td");
         var timeNum = data[i];
         td.className = timeNum < 1200 ? "am" : "pm";
-        td.appendChild(document.createTextNode(timeNumToStr(timeNum)));
+        var note = notes[i] || "";
+        var timeStr = timeNumToStr(timeNum) + note;
+        td.appendChild(document.createTextNode(timeStr));
         tr.appendChild(td);
     }
 }
