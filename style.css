@@ -23,6 +23,13 @@ body {
     vertical-align: 100%;
 }
 
+@media only screen and (max-device-width: 480px) {
+    #lines {
+        /* fit boxes on iphone screen */
+        font-size: 8px;
+    }
+}
+
 .line_box {
     display: inline-block;
     width: 75px;
