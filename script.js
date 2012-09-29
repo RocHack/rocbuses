@@ -49,13 +49,18 @@ onHashChange();
 window.addEventListener("hashchange", onHashChange, false);
 setTimeout(onHashChange, 10);
 
-loadJSON("schedules.json", function (redSchedule) {
-    if (!redSchedule) {
+loadJSON("schedules.json", function (schedules) {
+    if (!schedules) {
         // Unable to load schedules
+		document.body.appendChild(
+			document.createTextNode("Unable to load schedules!"));
         return;
     }
-    var scheduleEl = renderSchedule("red", redSchedule);
-    document.getElementById("schedules").appendChild(scheduleEl);
+	var schedulesEl = document.getElementById("schedules");
+	for (var line in schedules) {
+		var scheduleEl = renderSchedule(line, schedules[line]);
+		schedulesEl.appendChild(scheduleEl);
+	}
 	onHashChange();
 });
 
