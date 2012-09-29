@@ -4,6 +4,8 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-size: 16px;
+    margin-right: 0;
+    margin-bottom: 0;
 }
 
 .container {
@@ -67,17 +69,21 @@ body {
     overflow: auto;
 }
 
+.route {
+    margin-bottom: 1.5em;
+}
+
 .schedule h3 {
     position: absolute;
     text-align: left;
     font-size: 18px;
     margin: 0 0 8px 0;
     font-weight: inherit;
+    margin-right: 8px;
 }
 
 .schedule h3.wrapfix {
     visibility: hidden;
-    margin-right: -8px;
     position: static;
 }
 
