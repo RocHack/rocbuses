@@ -439,5 +439,268 @@
         ]
     }]
 }
+],
+
+"green": [
+{
+    "title": "River Campus to Pittsford Plaza",
+    "days": "U",
+    "directions": [{
+        "title": "Bus Leaves River Campus to Pittsford Plaza",
+        "stops": [
+            {
+                "place": "Rush Rhees Library",
+                "times": [1050, 1200, 1310, 1420, 1530, 1640, 1750, 1900]
+            },
+            {
+                "place": "Wilmot",
+                "times": [1051, 1201, 1311, 1421, 1531, 1641, 1751, 1901]
+            },
+            {
+                "place": "Mt. Hope & Elmwood",
+                "times": [1056, 1206, 1316, 1426, 1536, 1646, 1756, 1906]
+            },
+            {
+                "place": "Tops Plaza",
+                "times": [1101, 1211, 1321, 1431, 1541, 1651, 1801, 1911]
+            },
+            {
+                "place": "Twelve Corners",
+                "times": [1106, 1216, 1326, 1436, 1546, 1656, 1806, 1916]
+            },
+            {
+                "place": "Clover Lanes",
+                "times": [1113, 1223, 1333, 1443, 1553, 1703, 1813, 1923]
+            },
+            {
+                "place": "Pittsford Plaza",
+                "times": [1119, 1229, 1339, 1449, 1559, 1709, 1819, 1929]
+            }
+        ]
+    },
+    {
+        "title": "Bus Leaves Pittsford Plaza to River Campus",
+        "stops": [
+            {
+                "place": "Pittsford Plaza",
+                "times": [1119, 1229, 1339, 1449, 1559, 1709, 1819, 1929]
+            },
+            {
+                "place": "Clover Lanes",
+                "times": [1125, 1235, 1345, 1455, 1605, 1715, 1825, 1935]
+            },
+            {
+                "place": "Twelve Corners",
+                "times": [1132, 1242, 1352, 1502, 1612, 1722, 1832, 1942]
+            },
+            {
+                "place": "Tops Plaza",
+                "times": [1142, 1252, 1402, 1512, 1622, 1732, 1842, 1952]
+            },
+            {
+                "place": "Mt. Hope & Elmwood",
+                "times": [1147, 1257, 1407, 1517, 1627, 1737, 1847, 1957]
+            },
+            {
+                "place": "Wilmot",
+                "times": [1148, 1258, 1408, 1518, 1628, 1738, 1848, 1958]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [1150, 1300, 1410, 1520, 1630, 1740, 1850, 2000]
+            }
+        ]
+    }]
+},
+
+{
+    "title": "River Campus to Marketplace Mall/Wal-Mart/Movies 10",
+    "days": "S",
+    "directions": [{
+        "stops": [
+            {
+                "place": "Rush Rhees Library",
+                "times": [1200, 1230, 1257, 1327, 1354, 1424, 1451, 1521, 1616,
+                1646, 1713, 1756, 1811, 1854, 1920, 1947, 2015, 2052, 2110,
+                2145, 2205, 2242, 2320]
+            },
+            {
+                "place": "Crittenden/West Henrietta",
+                "times": [1208, 1238, 1305, 1335, 1402, 1432, 1459, 1529, 1624,
+                1703, 1721, 1803, 1819, 1902, 1928, 2002, 2023, 2059, 2118,
+                2152, 2213, 2249, 2328]
+            },
+            {
+                "place": "Movies 10",
+                "times": [1209, 1239, 1306, 1336, 1403, 1433, 1500, 1530, 1625,
+                1704, 1722, 1804, 1820, 1903, 1929, 2004, 2024, 2100, 2119,
+                2153, 2214, 2250, 2329]
+            },
+            {
+                "place": "Marketplace Mall",
+                "times": [1219, 1249, 1316, 1346, 1413, 1443, 1510, 1540, 1635,
+                1715, 1732, 1815, 1830, 1909, 1939, 2005, 2034, 2107, 2129,
+                2204, 2224, 2301, 2339]
+            },
+            {
+                "place": "Wegmans",
+                "times": [1223, 1253, 1320, 1350, 1417, 1447, 1514, 1544, 1639,
+                1720, 1736, 1820, 1834, 1913, 1943, 2006, 2038, 2111, 2133,
+                2208, 2228, 2305, 2343]
+            },
+            {
+                "place": "Target",
+                "times": [1227, 1257, 1324, 1354, 1421, 1451, 1518, 1548, 1643,
+                1724, 1740, 1824, 1838, 1917, 1947, 2010, 2042, 2115, 2137,
+                2212, 2232, 2309, null]
+            },
+            {
+                "place": "Wal-Mart",
+                "times": [1231, 1301, 1328, 1358, 1425, 1455, 1522, 1552, 1647,
+                1728, 1744, 1828, 1842, 1921, 1951, 2014, 2046, 2119, 2141,
+                2216, 2236, 2313, 2347]
+            },
+            {
+                "place": "Regal-Henrietta",
+                "times": [1233, 1303, 1329, 1400, 1426, 1457, 1523, 1554, 1648,
+                1730, 1745, 1830, 1843, 1923, 1953, 2016, 2048, 2121, 2143,
+                2218, 2238, 2315, 2359]
+            },
+            {
+                "place": "Southside/University Park",
+                "times": [1248, 1318, 1345, 1415, 1442, 1512, 1539, 1609, 1704,
+                1745, 1801, 1845, 1859, 1938, 2008, 2031, 2103, 2136, 2158,
+                2233, 2253, 2330, 14]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [1254, 1324, 1351, 1421, 1448, 1518, 1545, 1615, 1710,
+                1751, 1807, 1851, 1905, 1944, 2014, 2037, 2109, 2142, 2204,
+                2239, 2259, 2336, 20]
+            }
+        ]
+    }]
+},
+
+{
+    "title": "River Campus to Public Market",
+    "days": "S",
+    "effective": [[2012, 8, 1], [2012, 10, 10]],
+    "no_service": [[2012, 10, 11], [2013, 2, 8]],
+    "directions": [{
+        "title": "Bus Leaves River Campus to Public Market",
+        "stops": [
+            {
+                "place": "Rush Rhees Library",
+                "times": [830, 940, 1050, 1200, 1310, 1420]
+            },
+            {
+                "place": "Towers",
+                "times": [832, 942, 1052, 1202, 1312, 1422]
+            },
+            {
+                "place": "Whipple Park",
+                "times": [840, 950, 1100, 1210, 1320, null]
+            },
+            {
+                "place": "Eastman",
+                "times": [855, 1005, 1115, 1225, 1335, 1437]
+            },
+            {
+                "place": "Public Market",
+                "times": [905, 1015, 1125, 1235, 1345, 1447]
+            }
+        ]
+    },
+    {
+        "title": "Bus Leaves Public Market to River Campus",
+        "stops": [
+            {
+                "place": "Public Market",
+                "times": [905, 1015, 1125, 1235, 1345, 1447]
+            },
+            {
+                "place": "Eastman",
+                "times": [915, 1025, 1135, 1245, 1355, 1457]
+            },
+            {
+                "place": "Whipple Park",
+                "times": [930, 1040, 1150, 1300, 1410, null]
+            },
+            {
+                "place": "Towers",
+                "times": [938, 1048, 1158, 1308, 1418, 1512]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [940, 1050, 1200, 1310, 1420, 1515]
+            }
+        ]
+    }]
+},
+
+{
+    "title": "River Campus to Riverview/Brooks Landing/Chili Wal-Mart",
+    "days": "TW",
+    "directions": [{
+        "title": "Bus Leaves River Campus to Chili Wal-Mart",
+        "stops": [
+            {
+                "place": "Rush Rhees Library",
+                "times": [1708, 1808, 1900, 1940, 2017]
+            },
+            {
+                "place": "Towers",
+                "times": [1710, 1810, 1902, 1942, 2019]
+            },
+            {
+                "place": "Riverview/Brooks Landing",
+                "times": [1715, 1815, 1907, 1947, 2024]
+            },
+            {
+                "place": "Brooks & Buell",
+                "times": [1723, 1823, 1915, 1955, 2032]
+            },
+            {
+                "place": "Wal-Mart",
+                "times": [1726, 1826, 1918, 1958, 2035]
+            }
+        ]
+    },
+    {
+        "title": "Bus Leaves River Campus to Public Market",
+        "stops": [
+            {
+                "place": "Wal-Mart",
+                "times": [1729, 1829, 1921, 2001, 2038]
+            },
+            {
+                "place": "Brooks & Buell",
+                "times": [1732, 1832, 1924, 2004, 2041]
+            },
+            {
+                "place": "Riverview/Brooks Landing",
+                "times": [1737, 1837, 1929, 2009, 2046]
+            },
+            {
+                "place": "Towers",
+                "times": [1743, 1843, 1935, 2015, 2052]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [1745, 1845, 1937, 2017, 2054]
+            }
+        ]
+    }]
+}
+],
+
+"orange": [
+],
+
+"silver": [
+],
+
+"gold": [
 ]
 }

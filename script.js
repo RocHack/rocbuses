@@ -15,6 +15,17 @@ function loadJSON(url, cb) {
     r.send(null);
 }
 
+// Make a Date out of an object loaded from JSON
+function makeDate(arr) {
+    return new Date(arr[0], arr[1], arr[2], 0, 0, 0, 0);
+}
+
+// Make a string for a date or date range
+function makeDateString(arr) {
+    return makeDate(arr[0]).toDateString() +
+        (arr[1] ? "—" + makeDate(arr[1]).toDateString() : "");
+}
+
 var lines = "red green orange blue silver gold".split(" ");
 
 // Update Line on hash change
@@ -97,16 +108,30 @@ function renderRoute(data, container) {
     }
 
     // Add notes info
+    var notes = [];
     if (data.notes) {
-        var tfoot = document.createElement("tfoot");
         for (var indicator in data.notes) {
-            tr = document.createElement("tr");
             var note = indicator + " indicates " + data.notes[indicator];
-            var noteEl = document.createElement("div");
-            noteEl.className = "indicator-note";
+            notes.push(note);
+        }
+    }
+    if (data.effective) {
+        notes.push("Effective " + makeDateString(data.effective));
+    }
+    if (data.no_service) {
+        notes.push("No Service " + makeDateString(data.no_service));
+    }
+
+    if (notes.length) {
+        var tfoot = document.createElement("tfoot");
+        for (var i = 0; i < notes.length; i++) {
+            var note = notes[i];
+            tr = document.createElement("tr");
+            var noteEl = document.createElement("td");
+            noteEl.className = "note";
             noteEl.setAttribute("colspan", "100%");
-            tr.appendChild(noteEl);
             noteEl.appendChild(document.createTextNode(note));
+            tr.appendChild(noteEl);
             tfoot.appendChild(tr);
         }
         table.appendChild(tfoot);
@@ -122,16 +147,18 @@ function renderRouteDirection(data, table) {
     var tbody = document.createElement("tbody");
 
     // Insert title
-    var thead = document.createElement("thead");
-    var tr = document.createElement("tr");
-    var th = document.createElement("th");
-    th.setAttribute("colspan", "100%");
-    var header = document.createElement("h4");
-    header.appendChild(document.createTextNode(data.title));
-    tr.appendChild(th);
-    th.appendChild(header);
-    thead.appendChild(tr);
-    table.appendChild(thead);
+    if (data.title) {
+        var thead = document.createElement("thead");
+        var tr = document.createElement("tr");
+        var th = document.createElement("th");
+        th.setAttribute("colspan", "100%");
+        var header = document.createElement("h4");
+        header.appendChild(document.createTextNode(data.title));
+        tr.appendChild(th);
+        th.appendChild(header);
+        thead.appendChild(tr);
+        table.appendChild(thead);
+    }
 
     // Loop through destinations
     for (var i = 0; i < data.stops.length; i++) {
