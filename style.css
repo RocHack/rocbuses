@@ -4,7 +4,6 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-size: 16px;
-    margin-right: 0;
     margin-bottom: 0;
 }
 
@@ -13,16 +12,26 @@ body {
     text-align: center;
 }
 
-.title {
+h1 {
     font-size: 42px;
+    font-weight: inherit;
+    margin: 0;
 }
 
-.instruction {
+h2 {
     margin: 15px auto 15px auto;
     font-size: 24px;
+    font-weight: inherit;
     text-align: left;
     color: #505050;
     vertical-align: 100%;
+}
+
+@media only screen and (max-device-width: 480px) {
+    #lines {
+        /* fit boxes on iphone screen */
+        font-size: 8px;
+    }
 }
 
 .line_box {
@@ -63,7 +72,7 @@ body {
 }
 
 .route {
-    margin-bottom: 1.5em;
+    margin: 0 -8px 1.5em;
 }
 
 .schedule h3 {
@@ -85,6 +94,10 @@ body {
     margin: 0px auto 0px auto;
 }
 
+.schedule td:last-child {
+    border-right: 8px solid transparent;
+}
+
 .schedule th {
     border-right: 1px solid #1E1E1E;
     text-align: left;
@@ -101,7 +114,9 @@ body {
     padding-right: 0;
 }
 
-.schedule tr:last-child td {
+.schedule tbody tr:last-child td,
+.schedule tbody tr:last-child th
+{
     border-bottom: 0px;
 }
 
