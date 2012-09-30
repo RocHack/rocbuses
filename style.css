@@ -78,21 +78,22 @@ h2 {
 .schedule h3 {
     text-align: left;
     font-size: 18px;
-    margin: 0;
+    margin: 0 0 1ex;
     font-weight: inherit;
 }
 
 .schedule thead th {
-    height: 3em;
+    height: 2em;
     border-style: none;
+    vertical-align: top;
+    line-height: 2.5em;
 }
 
 .schedule h4 {
     position: absolute;
-    left: 8px;
     text-align: left;
     font-size: 14px;
-    margin: 0;
+    margin: 0 0 0 5px;
     font-weight: inherit;
 }
 
@@ -149,18 +150,16 @@ h2 {
 }
 
 .schedule tfoot tr {
-    height: 1.75em;
+    height: 1.5em;
 }
 
 .schedule .note {
     font-size: inherit;
     position: absolute;
     padding: 1ex 1ex 0 0;
-    right: 0;
-    left: 0;
     text-align: right;
-    white-space: nowrap;
     overflow: hidden;
+    font-size: 15px;
 }
 
 body:not(.line_selected) #schedule_title {
