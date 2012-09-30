@@ -696,6 +696,253 @@
 ],
 
 "orange": [
+{
+    "title": "Rush Rhees Library to Downtown Housing",
+    "days": "MTWRF",
+    "directions": [{
+        "title": "Bus Leaves River Campus to Downtown Housing",
+        "days": "MTWRF",
+        "time_of_day": "am",
+        "stops": [
+            {
+                "place": "Rush Rhees Library",
+                "times": [null, 800, 835, 910, 945]
+            },
+            {
+                "place": "Towers",
+                "times": [null, 802, 837, 912, 947]
+            },
+            {
+                "place": "Gregory & South",
+                "times": [730, 806, 841, 916, 951]
+            },
+            {
+                "place": "South & Alexander",
+                "times": [732, 808, 843, 918, 953]
+            },
+            {
+                "place": "Monroe & Alexander",
+                "times": [734, 810, 845, 920, 955]
+            },
+            {
+                "place": "East & Alexander",
+                "times": [736, 812, 847, 922, 957]
+            },
+            {
+                "place": "East & Barrington",
+                "times": [740, 816, 851, 926, 1001]
+            },
+            {
+                "place": "Park & Culver",
+                "times": [743, 819, 854, 929, 1004]
+            },
+            {
+                "place": "Monroe & Goodman",
+                "times": [747, 823, 858, 933, 1008]
+            },
+            {
+                "place": "Mt. Hope & McLean",
+                "times": [757, 833, 908, 943, 1018]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [800, 835, 910, 945, 1020]
+            }
+        ]
+    },
+    {
+        "title": "Bus Leaves River Campus to Downtown Housing",
+        "days": "MTW",
+        "time_of_day": "pm",
+        "stops": [
+            {
+                "place": "Rush Rhees Library",
+                "times": [1630, 1705, 1740, 1815, 1905, 1955, 2045, 2135, 2225]
+            },
+            {
+                "place": "Towers",
+                "times": [1632, 1707, 1742, 1817, 1907, 1957, 2047, 2137, 2227]
+            },
+            {
+                "place": "Gregory & South",
+                "times": [1636, 1711, 1746, 1821, 1911, 2001, 2051, 2141, 2231]
+            },
+            {
+                "place": "South & Alexander",
+                "times": [1638, 1713, 1748, 1823, 1913, 2003, 2053, 2143, 2233]
+            },
+            {
+                "place": "Monroe & Alexander",
+                "times": [1640, 1715, 1750, 1825, 1915, 2005, 2055, 2145, 2235]
+            },
+            {
+                "place": "East & Alexander",
+                "times": [1642, 1717, 1752, 1827, 1917, 2007, 2057, 2147, 2237]
+            },
+            {
+                "place": "Eastman Living Center",
+                "times": [null, null, null, 1837, 1927, 2017, 2107, 2157, 2247]
+            },
+            {
+                "place": "East & Barrington",
+                "times": [1646, 1721, 1756, 1847, 1937, 2027, 2117, 2207, 2257]
+            },
+            {
+                "place": "Park & Culver",
+                "times": [1649, 1724, 1759, 1850, 1940, 2030, 2120, 2210, 2300]
+            },
+            {
+                "place": "Monroe & Goodman",
+                "times": [1653, 1728, 1803, 1854, 1944, 2034, 2124, 2214, 2304]
+            },
+            {
+                "place": "Mt. Hope & McLean",
+                "times": [1703, 1738, 1813, 1903, 1953, 2043, 2133, 2223, 2313]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [1705, 1740, 1815, 1905, 1955, 2045, 2135, 2225, 2315]
+            }
+        ]
+    },
+    {
+        "title": "Bus Leaves River Campus to Downtown Housing",
+        "days": "RF",
+        "time_of_day": "pm",
+        "stops": [
+            {
+                "place": "Rush Rhees Library",
+                "times": [1630, 1705, 1740, 1815, 1905, 1955, 2045, 2135, 2225,
+                2350, 115]
+            },
+            {
+                "place": "Towers",
+                "times": [1632, 1707, 1742, 1817, 1907, 1957, 2047, 2137, 2227,
+                2352, 117]
+            },
+            {
+                "place": "Gregory & South",
+                "times": [1636, 1711, 1746, 1821, 1911, 2001, 2051, 2141, 2231,
+                2356, 121]
+            },
+            {
+                "place": "South & Alexander",
+                "times": [1638, 1713, 1748, 1823, 1913, 2003, 2053, 2143, 2233,
+                2358, 123]
+            },
+            {
+                "place": "Monroe & Alexander",
+                "times": [1640, 1715, 1750, 1825, 1915, 2005, 2055, 2145, 2235,
+                0, 125]
+            },
+            {
+                "place": "East & Alexander",
+                "times": [1642, 1717, 1752, 1827, 1917, 2007, 2057, 2147, 2237,
+                2, 127]
+            },
+            {
+                "place": "Eastman Living Center",
+                "times": [null, null, null, 1837, 1927, 2017, 2107, 2157, 2247,
+                12, 137]
+            },
+            {
+                "place": "East & Barrington",
+                "times": [1646, 1721, 1756, 1847, 1937, 2027, 2117, 2207, 2257,
+                22, 147]
+            },
+            {
+                "place": "Park & Culver",
+                "times": [1649, 1724, 1759, 1850, 1940, 2030, 2120, 2210, 2300,
+                25, 150]
+            },
+            {
+                "place": "Monroe & Goodman",
+                "times": [1653, 1728, 1803, 1854, 1944, 2034, 2124, 2214, 2304,
+                29, 154]
+            },
+            {
+                "place": "Mt. Hope & McLean",
+                "times": [1703, 1738, 1813, 1903, 1953, 2043, 2133, 2223, 2313,
+                38, 203]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [1705, 1740, 1815, 1905, 1955, 2045, 2135, 2225, 2315,
+                40, 205]
+            }
+        ]
+    }]
+},
+
+{
+    "title": "Rush Rhees Library to downtown Housing & Eastman",
+    "days": "U",
+    "directions": [{
+        "title": "Bus Leaves Rush Rhees Library to Downtown Housing",
+        "stops": [
+            {
+                "place": "Rush Rhees Library",
+                "times": [900, 1025, 1150, 1315, 1440, 1605, 1730, 1855, 2020,
+                2145]
+            },
+            {
+                "place": "Towers",
+                "times": [902, 1027, 1152, 1317, 1442, 1607, 1732, 1857, 2022,
+                2147]
+            },
+            {
+                "place": "Gregory & South",
+                "times": [906, 1031, 1156, 1321, 1446, 1611, 1736, 1901, 2026,
+                2151]
+            },
+            {
+                "place": "South & Alexander",
+                "times": [908, 1033, 1158, 1323, 1448, 1613, 1738, 1903, 2028,
+                2153]
+            },
+            {
+                "place": "Monroe & Alexander",
+                "times": [910, 1035, 1200, 1325, 1450, 1615, 1740, 1905, 2030,
+                2155]
+            },
+            {
+                "place": "East & Alexander",
+                "times": [912, 1037, 1202, 1327, 1452, 1617, 1742, 1907, 2032,
+                2157]
+            },
+            {
+                "place": "Eastman Living Center",
+                "times": [922, 1047, 1212, 1337, 1502, 1627, 1752, 1917, 2042,
+                2207]
+            },
+            {
+                "place": "East & Barrington",
+                "times": [932, 1057, 1222, 1347, 1512, 1637, 1802, 1927, 2052,
+                2217]
+            },
+            {
+                "place": "Park & Culver",
+                "times": [935, 1100, 1225, 1350, 1515, 1640, 1805, 1930, 2055,
+                2220]
+            },
+            {
+                "place": "Monroe & Goodman",
+                "times": [939, 1104, 1229, 1354, 1519, 1644, 1809, 1934, 2059,
+                2224]
+            },
+            {
+                "place": "Mt. Hope & McLean",
+                "times": [948, 1113, 1238, 1403, 1528, 1653, 1818, 1943, 2108,
+                2233]
+            },
+            {
+                "place": "Rush Rhees Library",
+                "times": [950, 1115, 1240, 1405, 1530, 1655, 1820, 1945, 2110,
+                2235]
+            }
+        ]
+    }]
+}
 ],
 
 "silver": [
