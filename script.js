@@ -29,7 +29,7 @@ function onHashChange() {
 
     // hide old schedule
     if (currentScheduleEl) {
-        resetScrolling(currentScheduleEl);
+        resetFancyScroll(currentScheduleEl);
         currentScheduleEl.style.display = "none";
     }
 
@@ -41,7 +41,7 @@ function onHashChange() {
             // If the table is not visible, the browser will not scroll to it.
             // So we scroll for it.
             currentScheduleEl.scrollIntoView();
-            initScrolling(currentScheduleEl);
+            updateFancyScroll(currentScheduleEl);
         }
     }
 }
@@ -69,20 +69,18 @@ function renderSchedule(line, schedule) {
     var scheduleEl = document.createElement("div");
     scheduleEl.className = "schedule";
     scheduleEl.id = line;
-    scheduleEl.addEventListener("scroll", onScheduleScroll, false);
 
     // Loop through each table and generate it
     // appending it as we go.
     for (var i = 0; i < schedule.length; i++) {
         var route = schedule[i];
-        var tableOuter = renderRoute(route);
-        scheduleEl.appendChild(tableOuter);
+        renderRoute(route, scheduleEl);
     }
     return scheduleEl;
 }
 
-// Create a table for a route
-function renderRoute(data) {
+// Create and insert a table for a route
+function renderRoute(data, container) {
     var routeEl = document.createElement("div");
     routeEl.className = "route";
 
@@ -92,12 +90,48 @@ function renderRoute(data) {
     // Insert title
     var title = document.createElement("h3");
     title.appendChild(document.createTextNode(data.title));
-    routeEl.appendChild(title);
+    container.appendChild(title);
 
-    // Add another title for line wrapping purposes
-    var title2 = title.cloneNode(true);
-    title2.className = "wrapfix";
-    routeEl.appendChild(title2);
+    if (data.directions) for (var i = 0; i < data.directions.length; i++) {
+        renderRouteDirection(data.directions[i], table);
+    }
+
+    // Add notes info
+    if (data.notes) {
+        var tfoot = document.createElement("tfoot");
+        for (var indicator in data.notes) {
+            tr = document.createElement("tr");
+            var note = indicator + " indicates " + data.notes[indicator];
+            var noteEl = document.createElement("div");
+            noteEl.className = "indicator-note";
+            noteEl.setAttribute("colspan", "100%");
+            tr.appendChild(noteEl);
+            noteEl.appendChild(document.createTextNode(note));
+            tfoot.appendChild(tr);
+        }
+        table.appendChild(tfoot);
+    }
+
+    routeEl.appendChild(table);
+    setupFancyScroll(routeEl);
+    container.appendChild(routeEl);
+}
+
+function renderRouteDirection(data, table) {
+    // Create tbody
+    var tbody = document.createElement("tbody");
+
+    // Insert title
+    var thead = document.createElement("thead");
+    var tr = document.createElement("tr");
+    var th = document.createElement("th");
+    th.setAttribute("colspan", "100%");
+    var header = document.createElement("h4");
+    header.appendChild(document.createTextNode(data.title));
+    tr.appendChild(th);
+    th.appendChild(header);
+    thead.appendChild(tr);
+    table.appendChild(thead);
 
     // Loop through destinations
     for (var i = 0; i < data.stops.length; i++) {
@@ -119,21 +153,10 @@ function renderRoute(data) {
         }
         // Add times
         insertTimes(tr, stop.times, notes);
-        table.appendChild(tr);
+        tbody.appendChild(tr);
     }
 
-    routeEl.appendChild(table);
-
-    // Add notes info
-    for (var indicator in data.notes) {
-        var noteEl = document.createElement("div");
-        noteEl.className = "indicator-note";
-        var note = indicator + " indicates " + data.notes[note];
-        noteEl.appendChild(document.createTextNode(note));
-        routeEl.appendChild(noteEl);
-    }
-
-    return routeEl;
+    table.appendChild(tbody);
 }
 
 // Convert JSON military time to 12-hour time
@@ -147,7 +170,7 @@ function insertTimes(tr, data, notes) {
     for (var i = 0; i < data.length; i++) {
         var td = document.createElement("td");
         var timeNum = data[i];
-        td.className = timeNum < 1200 ? "am" : "pm";
+        if (timeNum >= 1200) td.className = "pm";
         var note = notes[i] || "";
         var timeStr = timeNumToStr(timeNum) + note;
         td.appendChild(document.createTextNode(timeStr));
@@ -162,57 +185,111 @@ function insertTimes(tr, data, notes) {
 // shrink the THs but keep them visible and at least a certain width.
 // This helps the user see which stop each row is for.
 
-var scrollLeft,
-    thWidth,
-    tables = [],
-    ths = [];
-
 function initTH(th) {
     th.className = "fancyscroll";
 }
 
-// This has to to be reset when the table is hidden, otherwise 
-// the space taken up by each TH collapses.
+// The cell has to get position static when the table is hidden, otherwise 
+// the space taken up by it collapses.
 function resetTH(th) {
     th.className = "";
-    th.style.width = "";
 }
 
-function updateTH(th) {
-    th.style.width = thWidth + "px";
+var fancyScrollContainers = [];
+
+function setupFancyScroll(container) {
+    var reflowed = false,
+        scrollLeft = 0,
+        scrollLeftSaved = 0,
+        thWidth,
+        maxTHWidth,
+        minTHWidth = 58,
+        tbodies = [].slice.call(container.getElementsByTagName("tbody")),
+        ths = [];
+
+    tbodies.forEach(function (tbody) {
+        [].slice.call(tbody.getElementsByTagName("th")).forEach(function (th) {
+            ths.push(th);
+            var spacer = document.createElement("td");
+            spacer.className = "fancyscroll-spacer";
+            th.parentNode.insertBefore(spacer, th.nextSibling);
+        });
+    });
+
+    fancyScrollContainers.push(container);
+
+    function updateTH(th) {
+        th.style.width = thWidth + "px";
+    }
+
+    // If left is "", the th moves with the table. Good for centering.
+    // If left is 0 (or any number), the th does not move.
+    function updateTHLeft(th) {
+        th.style.left = container.scrollLeft ? "0" : "";
+    }
+
+    // The spacer holds the space of the absolute positioned th.
+    function updateTHSpacer(th) {
+        th.nextSibling.style.minWidth = maxTHWidth + 10 + "px";
+    }
+
+    function updateScrolling() {
+        thWidth = Math.max(maxTHWidth - container.scrollLeft, minTHWidth);
+        ths.forEach(updateTH);
+        if (scrollLeft != container.scrollLeft) {
+            scrollLeft = container.scrollLeft;
+            ths.forEach(updateTHLeft);
+        }
+    }
+
+    function reflow() {
+        if (!maxTHWidth) maxTHWidth = ths[0].offsetWidth;
+        ths.forEach(updateTHSpacer);
+        updateScrolling();
+        ths.forEach(initTH);
+        // Restore scroll position from before reset
+        if (scrollLeftSaved) {
+            container.scrollLeft = scrollLeftSaved;
+        }
+    }
+    container._reflow = reflow;
+
+    container.addEventListener("scroll", function (e) {
+        if (reflowed) {
+            updateScrolling();
+        } else {
+            reflow();
+            reflowed = true;
+        }
+    }, false);
+
+    container._reset = function (scheduleEl) {
+        ths.forEach(resetTH);
+        scrollLeftSaved = container.scrollLeft;
+        container.scrollLeft = 0;
+    };
 }
 
-function initScrolling(scheduleEl) {
-    tables = [].slice.call(scheduleEl.getElementsByTagName("table"));
-    tables.forEach(initTableScrolling);
-    ths = [].slice.call(scheduleEl.getElementsByTagName("th"));
-    ths.forEach(resetTH);
+function isNodeAncestor(maybeAncestor, node) {
+    for (var el = node; el; el = el.parentNode) {
+        if (el == maybeAncestor) return true;
+    }
+    return false;
 }
 
-function initTableScrolling(table) {
-    table._ths = [].slice.call(table.getElementsByTagName("th"));
-    var firstTH = table._ths[0];
-    setTimeout(function () {
-        var maxTHWidth = firstTH.offsetWidth - 6; // subtract padding & border
-        table.setAttribute("data-max-th-width", maxTHWidth);
-        table._ths.forEach(initTH);
-        updateTable(table);
-    }, 10);
+// Reflow all the tables. Must be called after they are made visible
+function updateFancyScroll(container) {
+    fancyScrollContainers.forEach(function (scroller) {
+        if (isNodeAncestor(container, scroller) && scroller._reflow) {
+            scroller._reflow();
+        }
+    });
 }
 
-function resetScrolling(scheduleEl) {
-    ths.forEach(resetTH);
+function resetFancyScroll(container) {
+    fancyScrollContainers.forEach(function (scroller) {
+        if (isNodeAncestor(container, scroller) && scroller._reset) {
+            scroller._reset();
+        }
+    });
 }
-
-function onScheduleScroll(e) {
-    tables.forEach(updateTable);
-}
-
-function updateTable(table) {
-    var scheduleEl = table.parentNode.parentNode;
-    scrollLeft = scheduleEl.scrollLeft;
-    var maxTHWidth = table.getAttribute("data-max-th-width");
-    thWidth = Math.max(maxTHWidth - scrollLeft, 58);
-    table._ths.forEach(updateTH);
-}
-

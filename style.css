@@ -68,25 +68,32 @@ h2 {
 
 .schedule {
     display: none;
-    overflow: auto;
 }
 
 .route {
     margin: 0 -8px 1.5em;
+    overflow: auto;
 }
 
 .schedule h3 {
-    position: absolute;
     text-align: left;
     font-size: 18px;
-    margin: 0 0 8px 0;
+    margin: 0;
     font-weight: inherit;
-    margin-right: 8px;
 }
 
-.schedule h3.wrapfix {
-    visibility: hidden;
-    position: static;
+.schedule thead th {
+    height: 3em;
+    border-style: none;
+}
+
+.schedule h4 {
+    position: absolute;
+    left: 8px;
+    text-align: left;
+    font-size: 14px;
+    margin: 0;
+    font-weight: inherit;
 }
 
 .schedule table {
@@ -95,14 +102,13 @@ h2 {
 }
 
 .schedule td:last-child {
-    border-right: 8px solid transparent;
+    border-right: 8px solid white;
 }
 
 .schedule th {
     border-right: 1px solid #1E1E1E;
     text-align: left;
     font-weight: inherit;
-    display: block;
     text-overflow: ellipsis;
     overflow: hidden;
     background-color: white;
@@ -110,8 +116,16 @@ h2 {
 }
 
 .schedule th.fancyscroll {
+    display: block;
     position: absolute;
-    padding-right: 0;
+}
+
+.schedule .fancyscroll-spacer {
+    border-style: none;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    min-width: 0;
 }
 
 .schedule tbody tr:last-child td,
@@ -120,21 +134,33 @@ h2 {
     border-bottom: 0px;
 }
 
-.schedule tr td:nth-child(2n+1) {
+.schedule tbody td:nth-child(2n+1) {
     background: #E5EFEF;
 }
 
-.schedule td, .schedule th {
+.schedule tbody td, .schedule tbody th {
     padding: 5px;
     border-bottom: 1px solid #E5E5E5;
+    min-width: 2.5em;
 }
 
 .schedule td.pm {
     font-weight: 600;
 }
 
+.schedule tfoot tr {
+    height: 1.75em;
+}
+
 .schedule .indicator-note {
     font-size: inherit;
+    position: absolute;
+    padding: 1ex 1ex 0 0;
+    right: 0;
+    left: 0;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 body:not(.line_selected) #schedule_title {
