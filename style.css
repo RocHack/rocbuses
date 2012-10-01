@@ -25,6 +25,11 @@ h2 {
     text-align: left;
     color: #505050;
     vertical-align: 100%;
+    display: none;
+}
+
+#lines h2, .line_selected h2 {
+    display: block;
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -43,27 +48,81 @@ h2 {
 }
 
 .line_red {
-    background-color: #D60021;
+    background: #D60021;
+}
+
+#red .line_name,
+#red h4 {
+    color: #D60021;
+}
+
+#red tbody td:nth-child(2n+1) {
+    background: #FAC6C8;
 }
 
 .line_green {
     background: #1C9B41;
 }
 
+#green .line_name,
+#green h4 {
+    color: #1C9B41;
+}
+
+#green tbody td:nth-child(2n+1) {
+    background: #CAEEDD;
+}
+
 .line_blue {
     background: #1469B1;
+}
+
+#blue .line_name,
+#blue h4 {
+    color: #1469B1;
+}
+
+#blue tbody td:nth-child(2n+1) {
+    background: #CBE5F2;
 }
 
 .line_silver {
     background: #B6C1B9;
 }
 
+#silver .line_name,
+#silver h4 {
+    color: #B6C1B9;
+}
+
+#silver tbody td:nth-child(2n+1) {
+    background: #EEF1EF;
+}
+
 .line_gold {
     background: #FDC425;
 }
 
+#gold .line_name,
+#gold h4 {
+    color: #FDC425;
+}
+
+#gold tbody td:nth-child(2n+1) {
+    background: #FFF5D1;
+}
+
 .line_orange {
     background: #F17A26;
+}
+
+#orange .line_name,
+#orange h4 {
+    color: #F17A26;
+}
+
+#orange tbody td:nth-child(2n+1) {
+    background: #FEDDBF;
 }
 
 .schedule {
