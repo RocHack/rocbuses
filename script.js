@@ -23,7 +23,38 @@ function makeDate(arr) {
 // Make a string for a date or date range
 function makeDateString(arr) {
     return makeDate(arr[0]).toDateString() +
-        (arr[1] ? "—" + makeDate(arr[1]).toDateString() : "");
+        (arr[1] ? "–" + makeDate(arr[1]).toDateString() : "");
+}
+
+// Day ranges are represented in the JSON by a string with characters from
+// the following string dayChars:
+var dayChars = "MTWRFSU";
+var dayNames = {
+    M: "Monday",
+    T: "Tuesday",
+    W: "Wednesday",
+    R: "Thursday",
+    F: "Friday",
+    S: "Saturday",
+    U: "Sunday"
+};
+
+// Convert a dayChars representation to a readable string, with optional AM/PM
+function formatDaysString(days, timeOfDay) {
+    var daysStr = !days ? "" :
+        days.length == 1 ? dayNames[days] + " Only":
+        ~dayChars.indexOf(days) ? // substring -> it's a range
+            dayNames[days[0]] + "–" + dayNames[days[days.length-1]] :
+        days.split("").map(function (c) { return dayNames[c]; }).join(", ");
+    var timeStr = timeOfDay ? timeOfDay.toUpperCase() : "";
+    return daysStr + (daysStr && timeStr ? ", " : "") + timeStr;
+}
+
+// Reveal an element by scrolling if it is out of view
+function scrollIntoViewIfNeeded(el) {
+    if (window.pageYOffset + window.innerHeight - 50 < el.offsetTop) {
+        window.scroll(0, el.offsetTop);
+    }
 }
 
 var lines = "red green orange blue silver gold".split(" ");
@@ -51,7 +82,7 @@ function onHashChange() {
             currentScheduleEl.style.display = "block";
             // If the table is not visible, the browser will not scroll to it.
             // So we scroll for it.
-            currentScheduleEl.scrollIntoView();
+            scrollIntoViewIfNeeded(currentScheduleEl);
             updateFancyScroll(currentScheduleEl);
         }
     }
@@ -85,18 +116,26 @@ function renderSchedule(line, schedule) {
     // appending it as we go.
     for (var i = 0; i < schedule.length; i++) {
         var route = schedule[i];
-        renderRoute(route, scheduleEl);
+        renderRoute(route, line, scheduleEl);
     }
     return scheduleEl;
 }
 
 // Create and insert a table for a route
-function renderRoute(data, container) {
+function renderRoute(data, line, container) {
     var routeEl = document.createElement("div");
     routeEl.className = "route";
 
     // Create the table
     var table = document.createElement("table");
+    
+    // Insert route name and days
+    var name = line[0].toUpperCase() + line.substr(1) + " Line " +
+        formatDaysString(data.days);
+    var h3 = document.createElement("h3");
+    h3.className = "line_name";
+    h3.appendChild(document.createTextNode(name));
+    container.appendChild(h3);
 
     // Insert title
     var title = document.createElement("h3");
@@ -146,17 +185,27 @@ function renderRouteDirection(data, table) {
     // Create tbody
     var tbody = document.createElement("tbody");
 
-    // Insert title
+    // Insert title and other headings
+    var headings = [];
     if (data.title) {
+        headings.push(data.title);
+    }
+    if (data.days) {
+        headings.push(formatDaysString(data.days, data.time_of_day));
+    }
+    if (headings.length) {
         var thead = document.createElement("thead");
-        var tr = document.createElement("tr");
-        var th = document.createElement("th");
-        th.setAttribute("colspan", "100%");
-        var header = document.createElement("h4");
-        header.appendChild(document.createTextNode(data.title));
-        tr.appendChild(th);
-        th.appendChild(header);
-        thead.appendChild(tr);
+        for (var i = 0; i < headings.length; i++) {
+            var heading = headings[i];
+            var tr = document.createElement("tr");
+            var th = document.createElement("th");
+            th.setAttribute("colspan", "100%");
+            var header = document.createElement("h4");
+            header.appendChild(document.createTextNode(heading));
+            tr.appendChild(th);
+            th.appendChild(header);
+            thead.appendChild(tr);
+        }
         table.appendChild(thead);
     }
 
@@ -188,7 +237,7 @@ function renderRouteDirection(data, table) {
 
 // Convert JSON military time to 12-hour time
 function timeNumToStr(timeNum) {
-    return timeNum == null ? "—" :
+    return timeNum == null ? "–" :
         (Math.floor(timeNum / 100) % 12 || 12) +
         ":" + ("0" + timeNum).substr(-2);
 }

@@ -78,15 +78,22 @@ h2 {
 .schedule h3 {
     text-align: left;
     font-size: 18px;
-    margin: 0 0 1ex;
+    margin: 0;
     font-weight: inherit;
 }
 
+.schedule h3.line_name {
+    font-weight: 400;
+}
+
 .schedule thead th {
-    height: 2em;
+    height: 1em;
     border-style: none;
-    vertical-align: top;
-    line-height: 2.5em;
+    white-space: normal;
+}
+
+.schedule thead tr:last-child th {
+    padding-bottom: .75em;
 }
 
 .schedule h4 {
