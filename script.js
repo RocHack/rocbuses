@@ -26,6 +26,20 @@ function makeDateString(arr) {
         (arr[1] ? "–" + makeDate(arr[1]).toDateString() : "");
 }
 
+// Convert JSON military time to 12-hour time
+function timeNumToString(timeNum) {
+    return timeNum == null ? "–" :
+        (Math.floor(timeNum / 100) % 12 || 12) +
+        ":" + ("0" + timeNum).substr(-2);
+}
+
+// Convert a time range array to a string
+// e.g. given [800, 1430] returns "8:00 AM – 2:30 PM"
+function timeRangeToString(times) {
+	return timeNumToString(times[0]) + (times[0]<1200 ? " AM" : " PM") +
+		"–" + timeNumToString(times[1]) + (times[1]<1200 ? " AM" : " PM");
+}
+
 // Day ranges are represented in the JSON by a string with characters from
 // the following string dayChars:
 var dayChars = "MTWRFSU";
@@ -134,6 +148,10 @@ function renderRoute(data, line, container) {
     // Insert route name and days
     var name = line[0].toUpperCase() + line.substr(1) + " Line " +
         formatDaysString(data.days);
+	// Some routes specify a time range as well as days
+	if (data.times) {
+		name += ", " + timeRangeToString(data.times);
+	}
     var h3 = document.createElement("h3");
     h3.className = "line_name";
     h3.appendChild(document.createTextNode(name));
@@ -237,20 +255,13 @@ function renderRouteDirection(data, table) {
     table.appendChild(tbody);
 }
 
-// Convert JSON military time to 12-hour time
-function timeNumToStr(timeNum) {
-    return timeNum == null ? "–" :
-        (Math.floor(timeNum / 100) % 12 || 12) +
-        ":" + ("0" + timeNum).substr(-2);
-}
-
 function insertTimes(tr, data, notes) {
     for (var i = 0; i < data.length; i++) {
         var td = document.createElement("td");
         var timeNum = data[i];
         if (timeNum >= 1200) td.className = "pm";
         var note = notes[i] || "";
-        var timeStr = timeNumToStr(timeNum) + note;
+        var timeStr = timeNumToString(timeNum) + note;
         td.appendChild(document.createTextNode(timeStr));
         tr.appendChild(td);
     }
