@@ -166,10 +166,7 @@ h2 {
 .schedule table {
     border-spacing: 0px;
     margin: 0px auto 0px auto;
-}
-
-.schedule td:last-child {
-    border-right: 8px solid white;
+	border-right: 8px solid white;
 }
 
 .schedule th {
