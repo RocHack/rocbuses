@@ -1105,7 +1105,7 @@
                 1415, 1435, 1455, 1515, 1535, 1555, 1615, 1635, 1655]
             },
             {
-                "place": "Weldon St. at Genesee St",
+                "place": "Weldon St. at Genesee St.",
                 "times": [736, 756, 816, 836, 856, 916, 936, 956, 1016, 1036,
                 1056, 1116, 1136, 1156, 1216, 1236, 1256, 1316, 1336, 1356,
                 1416, 1436, 1456, 1516, 1536, 1556, 1616, 1636, 1656]
@@ -1137,92 +1137,92 @@
                 2232, 2302, 2332, 2, 32, 102, 132]
             },
             {
-                "place": "Genesee St.@Genesee Park Blvd.",
+                "place": "Genesee Park Blvd. at Genesee St.",
                 "times": [1804, 1834, 1904, 1934, 2004, 2034, 2104, 2134, 2204,
                 2234, 2304, 2334, 4, 34, 104, 134]
             },
             {
-                "place": "Genesee Park Blvd.@Pioneer St.",
+                "place": "Pioneer St. at Genesee Park Blvd.",
                 "times": [1805, 1835, 1905, 1935, 2005, 2035, 2105, 2135, 2205,
                 2235, 2305, 2335, 5, 35, 105, 135]
             },
             {
-                "place": "Pioneer St.@Weldon St.",
+                "place": "Weldon St. at Pioneer St.",
                 "times": [1805, 1835, 1905, 1935, 2005, 2035, 2105, 2135, 2205,
                 2235, 2305, 2335, 5, 35, 105, 135]
             },
             {
-                "place": "Pioneer St.@Spruce Ave.",
+                "place": "Spruce Ave. at Pioneer St.",
                 "times": [1805, 1835, 1905, 1935, 2005, 2035, 2105, 2135, 2205,
                 2235, 2305, 2335, 5, 35, 105, 135]
             },
             {
-                "place": "Pioneer St.@Congress Ave.",
+                "place": "Congress Ave. at Pioneer St.",
                 "times": [1806, 1836, 1906, 1936, 2006, 2036, 2106, 2136, 2206,
                 2236, 2306, 2336, 6, 36, 106, 136]
             },
             {
-                "place": "Pioneer St.@Terrace Pk.",
+                "place": "Terrace Pk. at Pioneer St.",
                 "times": [1806, 1836, 1906, 1936, 2006, 2036, 2106, 2136, 2206,
                 2236, 2306, 2336, 6, 36, 106, 136]
             },
             {
-                "place": "Pioneer St.@ Brooks Ave.",
+                "place": "Brooks Ave. at Pioneer St.",
                 "times": [1806, 1836, 1906, 1936, 2006, 2036, 2106, 2136, 2206,
                 2236, 2306, 2336, 6, 36, 106, 136]
             },
             {
-                "place": "Brooks Ave.@Evangeline St.",
+                "place": "Evangeline St. at Brooks Ave.",
                 "times": [1807, 1837, 1907, 1937, 2007, 2037, 2107, 2137, 2207,
                 2237, 2307, 2337, 7, 37, 107, 137]
             },
             {
-                "place": "Brooks Ave.@Kron St.",
+                "place": "Kron St. at Brooks Ave.",
                 "times": [1807, 1837, 1907, 1937, 2007, 2037, 2107, 2137, 2207,
                 2237, 2307, 2337, 7, 37, 107, 137]
             },
             {
-                "place": "Brooks Ave.@Millbank St./Paige St.",
+                "place": "Millbank St./Paige St. at Brooks Ave.",
                 "times": [1807, 1837, 1907, 1937, 2007, 2037, 2107, 2137, 2207,
                 2237, 2307, 2337, 7, 37, 107, 137]
             },
             {
-                "place": "Brooks Ave.@Genesee St./Plymouth Ave.",
+                "place": "Genesee St./Plymouth Ave. at Brooks Ave.",
                 "times": [1808, 1838, 1908, 1938, 2008, 2038, 2108, 2138, 2208,
                 2238, 2308, 2338, 8, 38, 108, 138]
             },
             {
-                "place": "Riverview Apartments, 1250, Plymouth Ave.",
+                "place": "Riverview Apartments, 1250 Plymouth Ave.",
                 "times": [1811, 1841, 1911, 1941, 2011, 2041, 2111, 2141, 2211,
                 2241, 2311, 2341, 11, 41, 111, 141]
             },
             {
-                "place": "Barton St.@Genesee St.",
+                "place": "Genesee St. at Barton St.",
                 "times": [1815, 1845, 1915, 1945, 2015, 2045, 2115, 2145, 2215,
                 2245, 2315, 2345, 15, 45, 115, 145]
             },
             {
-                "place": "Genesee St.@Terrace Pk.",
+                "place": "Terrace Pk. at Genesee St.",
                 "times": [1816, 1846, 1916, 1946, 2016, 2046, 2116, 2146, 2216,
                 2246, 2316, 2346, 16, 46, 116, 146]
             },
             {
-                "place": "Genesee St.@Congress Ave.",
+                "place": "Congress Ave. at Genesee St.",
                 "times": [1816, 1846, 1916, 1946, 2016, 2046, 2116, 2146, 2216,
                 2246, 2316, 2346, 16, 46, 116, 146]
             },
             {
-                "place": "Genesee St.@Spruce Ave.",
+                "place": "Spruce Ave. at Genesee St.",
                 "times": [1817, 1847, 1917, 1947, 2017, 2047, 2117, 2147, 2217,
                 2247, 2317, 2347, 17, 47, 117, 147]
             },
             {
-                "place": "Genesee St.@Weldon St.",
+                "place": "Weldon St. at Genesee St.",
                 "times": [1817, 1847, 1917, 1947, 2017, 2047, 2117, 2147, 2217,
                 2247, 2317, 2347, 17, 47, 117, 147]
             },
             {
-                "place": "Genesee St.@Genesee Park Blvd.",
+                "place": "Genesee Park Blvd. at Genesee St.",
                 "times": [1818, 1848, 1918, 1948, 2018, 2048, 2118, 2148, 2218,
                 2248, 2318, 2348, 18, 48, 118, 148]
             },
@@ -1253,92 +1253,92 @@
                 2132, 2202, 2232, 2302, 2332, 2, 32]
             },
             {
-                "place": "Genesee St.@Genesee Park Blvd.",
+                "place": "Genesee Park Blvd. at Genesee St.",
                 "times": [1704, 1734, 1804, 1834, 1904, 1934, 2004, 2034, 2104,
                 2134, 2204, 2234, 2304, 2334, 4, 34]
             },
             {
-                "place": "Genesee Park Blvd.@Pioneer St.",
+                "place": "Pioneer St. at Genesee Park Blvd.",
                 "times": [1705, 1735, 1805, 1835, 1905, 1935, 2005, 2035, 2105,
                 2135, 2205, 2235, 2305, 2335, 5, 35]
             },
             {
-                "place": "Pioneer St.@Weldon St.",
+                "place": "Weldon St. at Pioneer St.",
                 "times": [1705, 1735, 1805, 1835, 1905, 1935, 2005, 2035, 2105,
                 2135, 2205, 2235, 2305, 2335, 5, 35]
             },
             {
-                "place": "Pioneer St.@Spruce Ave.",
+                "place": "Spruce Ave. at Pioneer St.",
                 "times": [1705, 1735, 1805, 1835, 1905, 1935, 2005, 2035, 2105,
                 2135, 2205, 2235, 2305, 2335, 5, 35]
             },
             {
-                "place": "Pioneer St.@Congress Ave.",
+                "place": "Congress Ave. at Pioneer St.",
                 "times": [1706, 1736, 1806, 1836, 1906, 1936, 2006, 2036, 2106,
                 2136, 2206, 2236, 2306, 2336, 6, 36]
             },
             {
-                "place": "Pioneer St.@Terrace Pk.",
+                "place": "Terrace Pk. at Pioneer St.",
                 "times": [1706, 1736, 1806, 1836, 1906, 1936, 2006, 2036, 2106,
                 2136, 2206, 2236, 2306, 2336, 6, 36]
             },
             {
-                "place": "Pioneer St.@ Brooks Ave.",
+                "place": "Brooks Ave. at Pioneer St.",
                 "times": [1706, 1736, 1806, 1836, 1906, 1936, 2006, 2036, 2106,
                 2136, 2206, 2236, 2306, 2336, 6, 36]
             },
             {
-                "place": "Brooks Ave.@Evangeline St.",
+                "place": "Evangeline St. at Brooks Ave.",
                 "times": [1707, 1737, 1807, 1837, 1907, 1937, 2007, 2037, 2107,
                 2137, 2207, 2237, 2307, 2337, 7, 37]
             },
             {
-                "place": "Brooks Ave.@Kron St.",
+                "place": "Kron St. at Brooks Ave.",
                 "times": [1707, 1737, 1807, 1837, 1907, 1937, 2007, 2037, 2107,
                 2137, 2207, 2237, 2307, 2337, 7, 37]
             },
             {
-                "place": "Brooks Ave.@Millbank St./Paige St.",
+                "place": "Millbank St./Paige St. at Brooks Ave.",
                 "times": [1707, 1737, 1807, 1837, 1907, 1937, 2007, 2037, 2107,
                 2137, 2207, 2237, 2307, 2337, 7, 37]
             },
             {
-                "place": "Brooks Ave.@Genesee St./Plymouth Ave.",
+                "place": "Genesee St./Plymouth Ave. at Brooks Ave.",
                 "times": [1708, 1738, 1808, 1838, 1908, 1938, 2008, 2038, 2108,
                 2138, 2208, 2238, 2308, 2338, 8, 38]
             },
             {
-                "place": "Riverview Apartments, 2450, Plymouth Ave.",
+                "place": "Riverview Apartments, 2450 Plymouth Ave.",
                 "times": [1711, 1741, 1811, 1841, 1911, 1941, 2011, 2041, 2111,
                 2141, 2211, 2241, 2311, 2341, 11, 41]
             },
             {
-                "place": "Barton St.@Genesee St.",
+                "place": "Genesee St. at Barton St.",
                 "times": [1715, 1745, 1815, 1845, 1915, 1945, 2015, 2045, 2115,
                 2145, 2215, 2245, 2315, 2345, 15, 45]
             },
             {
-                "place": "Genesee St.@Terrace Pk.",
+                "place": "Terrace Pk. at Genesee St.",
                 "times": [1716, 1746, 1816, 1846, 1916, 1946, 2016, 2046, 2116,
                 2146, 2216, 2246, 2316, 2346, 16, 46]
             },
             {
-                "place": "Genesee St.@Congress Ave.",
+                "place": "Congress Ave. at Genesee St.",
                 "times": [1716, 1746, 1816, 1846, 1916, 1946, 2016, 2046, 2116,
                 2146, 2216, 2246, 2316, 2346, 16, 46]
             },
             {
-                "place": "Genesee St.@Spruce Ave.",
+                "place": "Spruce Ave. at Genesee St.",
                 "times": [1717, 1747, 1817, 1847, 1917, 1947, 2017, 2047, 2117,
                 2147, 2217, 2247, 2317, 2347, 17, 47]
             },
             {
-                "place": "Genesee St.@Weldon St.",
+                "place": "Weldon St. at Genesee St.",
                 "times": [1717, 1747, 1817, 1847, 1917, 1947, 2017, 2047, 2117,
                 2147, 2217, 2247, 2317, 2347, 17, 47]
             },
             {
-                "place": "Genesee St.@Genesee Park Blvd.",
+                "place": "Genesee Park Blvd. at Genesee St.",
                 "times": [1718, 1748, 1818, 1848, 1918, 1948, 2018, 2048, 2118,
                 2148, 2218, 2248, 2318, 2348, 18, 48]
             },
