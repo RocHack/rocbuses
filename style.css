@@ -70,7 +70,7 @@ h2 {
 }
 
 #green tbody td:nth-child(2n+1) {
-    background: #CAEEDD;
+    background: #C9EEC9;
 }
 
 .line_blue {
@@ -207,7 +207,7 @@ h2 {
 
 .schedule tbody td, .schedule tbody th {
     padding: 5px;
-    border-bottom: 1px solid #E5E5E5;
+    border-bottom: 1px solid #ccc;
     min-width: 2.5em;
 }
 
