@@ -116,7 +116,9 @@ function renderSchedule(line, schedule) {
     // appending it as we go.
     for (var i = 0; i < schedule.length; i++) {
         var route = schedule[i];
-        renderRoute(route, line, scheduleEl);
+        if (!route.ignore) {
+            renderRoute(route, line, scheduleEl);
+        }
     }
     return scheduleEl;
 }
