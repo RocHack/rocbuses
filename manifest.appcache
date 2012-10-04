@@ -1,0 +1,10 @@
+CACHE MANIFEST
+
+#r1
+
+CACHE:
+
+index.html
+schedules.json
+script.js
+style.css

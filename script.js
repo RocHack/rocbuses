@@ -120,6 +120,14 @@ loadJSON("schedules.json", function (schedules) {
     onHashChange();
 });
 
+// Update appcache if necessary
+if (window.applicationCache) {
+    applicationCache.addEventListener("updateready", function () {
+        applicationCache.swapCache();
+        location.reload();
+    }, false);
+}
+
 // Render schedules for a line
 function renderSchedule(line, schedule) {
     var scheduleEl = document.createElement("div");
