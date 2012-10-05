@@ -166,7 +166,7 @@ h2 {
 .schedule table {
     border-spacing: 0px;
     margin: 0px auto 0px auto;
-	border-right: 8px solid white;
+    border-right: 8px solid white;
 }
 
 .schedule th {
@@ -182,6 +182,10 @@ h2 {
 .schedule th.fancyscroll {
     display: block;
     position: absolute;
+}
+
+.schedule th.fancyscroll:hover {
+    width: auto !important;
 }
 
 .schedule .fancyscroll-spacer {

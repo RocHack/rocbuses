@@ -36,8 +36,8 @@ function timeNumToString(timeNum) {
 // Convert a time range array to a string
 // e.g. given [800, 1430] returns "8:00 AM – 2:30 PM"
 function timeRangeToString(times) {
-	return timeNumToString(times[0]) + (times[0]<1200 ? " AM" : " PM") +
-		"–" + timeNumToString(times[1]) + (times[1]<1200 ? " AM" : " PM");
+    return timeNumToString(times[0]) + (times[0]<1200 ? " AM" : " PM") +
+        "–" + timeNumToString(times[1]) + (times[1]<1200 ? " AM" : " PM");
 }
 
 // Day ranges are represented in the JSON by a string with characters from
@@ -156,10 +156,10 @@ function renderRoute(data, line, container) {
     // Insert route name and days
     var name = line[0].toUpperCase() + line.substr(1) + " Line " +
         formatDaysString(data.days);
-	// Some routes specify a time range as well as days
-	if (data.times) {
-		name += ", " + timeRangeToString(data.times);
-	}
+    // Some routes specify a time range as well as days
+    if (data.times) {
+        name += ", " + timeRangeToString(data.times);
+    }
     var h3 = document.createElement("h3");
     h3.className = "line_name";
     h3.appendChild(document.createTextNode(name));
@@ -317,6 +317,9 @@ function setupFancyScroll(container) {
 
     function updateTH(th) {
         th.style.width = thWidth + "px";
+        th.style.minWidth = thWidth + "px";
+        // Use min-width also so that :hover { width: auto; }
+        // doesn't collapse the th width
     }
 
     // If left is "", the th moves with the table. Good for centering.
@@ -365,6 +368,20 @@ function setupFancyScroll(container) {
         scrollLeftSaved = container.scrollLeft;
         container.scrollLeft = 0;
     };
+
+    // Allow tap on mobile to keep a th visible
+    var visibleTH;
+    container.addEventListener("touchstart", function (e) {
+        if (visibleTH) {
+            // restore normal width to previously tapped th
+            visibleTH.style.width = visibleTH.style.minWidth;
+        }
+        if (e.target.nodeName != "TH") return;
+        var th = e.target;
+        // keep this th at full width until the user taps something else
+        th.style.width = "auto";
+        visibleTH = th;
+    }, false);
 }
 
 function isNodeAncestor(maybeAncestor, node) {
