@@ -466,9 +466,13 @@ function setupFancyScroll(container) {
         if (manualScroll === null) {
             setTimeout(function () {
                 manualScroll = !scrolled;
-                onTouchMove(e);
+                if (manualScroll) {
+                    onTouchMove(e);
+                } else {
+                    container.removeEventListener("touchmove", onTouchMove, false);
+                }
             }, 10);
-        } else {
+        } else if (manualScroll) {
             var scrollX = manualScrollStart - e.touches[0].pageX;
             container.scrollLeft = scrollX;
         }
