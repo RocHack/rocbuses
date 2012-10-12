@@ -354,7 +354,9 @@ function setupFancyScroll(container) {
     }
     container._reflow = reflow;
 
+    var scrolled = false;
     container.addEventListener("scroll", function (e) {
+        scrolled = true;
         if (reflowed) {
             updateScrolling();
         } else {
@@ -369,9 +371,12 @@ function setupFancyScroll(container) {
         container.scrollLeft = 0;
     };
 
-    // Allow tap on mobile to keep a th visible
     var visibleTH;
+    var manualScroll = null;
+    var manualScrollStart;
     container.addEventListener("touchstart", function (e) {
+        manualScrollStart = container.scrollLeft + e.touches[0].pageX;
+        // Allow tap on mobile to keep a th visible
         if (visibleTH) {
             // restore normal width to previously tapped th
             visibleTH.style.width = visibleTH.style.minWidth;
@@ -381,6 +386,20 @@ function setupFancyScroll(container) {
         // keep this th at full width until the user taps something else
         th.style.width = "auto";
         visibleTH = th;
+    }, false);
+
+    container.addEventListener("touchmove", function onTouchMove(e) {
+        // On old Android browsers, scroll events do not fire, unless we
+        // set scrollLeft. Feature detect here if scroll event fired.
+        if (manualScroll == null) {
+            setTimeout(function () {
+                manualScroll = !scrolled;
+                onTouchMove(e);
+            }, 10);
+        } else {
+            var scrollX = manualScrollStart - e.touches[0].pageX;
+            container.scrollLeft = scrollX;
+        }
     }, false);
 }
 
