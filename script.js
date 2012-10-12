@@ -64,6 +64,13 @@ function formatDaysString(days, timeOfDay) {
     return daysStr + (daysStr && timeStr ? ", " : "") + timeStr;
 }
 
+// Check if a date is fits into a date string.
+function isDayInString(date, dayStr) {
+    // We consider the day to change at 3AM instead of midnight.
+    date.setTime(date.getTime() - 3 * 3600000);
+    return ~dayStr.indexOf(dayChars[date.getDay()]);
+}
+
 // Reveal an element by scrolling if it is out of view
 function scrollIntoViewIfNeeded(el) {
     if (window.pageYOffset + window.innerHeight - 50 < el.offsetTop) {
@@ -72,9 +79,11 @@ function scrollIntoViewIfNeeded(el) {
 }
 
 var lines = "red green orange blue silver gold".split(" ");
+var currentLine;
+var currentScheduleEl;
+var schedulesData;
 
 // Update Line on hash change
-var currentScheduleEl;
 function onHashChange() {
     var line = location.hash.substr(1);
     var isLine = (lines.indexOf(line) != -1);
@@ -91,6 +100,7 @@ function onHashChange() {
 
     if (isLine) {
         // Show the new schedule
+        currentLine = line;
         currentScheduleEl = scheduleEl;
         if (currentScheduleEl) {
             currentScheduleEl.style.display = "block";
@@ -99,8 +109,54 @@ function onHashChange() {
             scrollIntoViewIfNeeded(currentScheduleEl);
             updateFancyScroll(currentScheduleEl);
         }
+        highlightUpcomingStops();
     }
 }
+
+// Highlight upcoming stops
+var highlightedTds = [];
+function highlightUpcomingStops() {
+    if (!currentScheduleEl) return;
+    // unhighlight stops from last time
+    highlightedTds.forEach(function (td) {
+        if (td.className.indexOf("upcoming") != -1) {
+            td.className = td.className.replace(/(^| )upcoming( |$)/, "");
+        }
+    });
+    highlightedTds.length = 0;
+
+    var now = new Date();
+    var nowNum = now.getHours() * 100 + now.getMinutes();
+
+    // Get selected line schedule (array of routes).
+    var schedule = schedulesData[currentLine];
+
+    schedule.forEach(function (route) {
+        // Check if this route is for today
+        if (!isDayInString(now, route.days)) return;
+        route.directions.forEach(function (direction) {
+            // Check if this route direction is for today
+            if (direction.days && !isDayInString(now, direction.days)) return;
+
+            direction.stops.forEach(function (stop) {
+                for (var i = 0; i < stop.times.length; i++) {
+                    var timeNum = stop.times[i];
+                    // Account for day change at 3:00 AM
+                    if (timeNum != null &&
+                       (timeNum > 300 == nowNum > 300 ? timeNum > nowNum :
+                        timeNum < 300 && timeNum+2400 > nowNum)) {
+
+                        var td = stop.tds[i];
+                        td.className += " upcoming";
+                        highlightedTds.push(td);
+                        break;
+                    }
+                }
+            });
+        });
+    });
+}
+
 onHashChange();
 window.addEventListener("hashchange", onHashChange, false);
 setTimeout(onHashChange, 10);
@@ -112,12 +168,15 @@ loadJSON("schedules.json", function (schedules) {
             document.createTextNode("Unable to load schedules!"));
         return;
     }
+    schedulesData = schedules;
     var schedulesEl = document.getElementById("schedules");
     for (var line in schedules) {
         var scheduleEl = renderSchedule(line, schedules[line]);
         schedulesEl.appendChild(scheduleEl);
     }
     onHashChange();
+    highlightUpcomingStops();
+    setInterval(highlightUpcomingStops, 60000);
 });
 
 // Update appcache if necessary
@@ -256,7 +315,7 @@ function renderRouteDirection(data, table) {
             }
         }
         // Add times
-        insertTimes(tr, stop.times, notes);
+        insertTimes(tr, stop, notes);
         tbody.appendChild(tr);
     }
 
@@ -264,15 +323,32 @@ function renderRouteDirection(data, table) {
 }
 
 function insertTimes(tr, data, notes) {
-    for (var i = 0; i < data.length; i++) {
+    var times = data.times;
+    // Save references to the tds
+    var tds = data.tds = new Array(times.length);
+    for (var i = 0; i < times.length; i++) {
         var td = document.createElement("td");
-        var timeNum = data[i];
+        tds[i] = td;
+        var timeNum = times[i];
         if (timeNum >= 1200) td.className = "pm";
         var note = notes[i] || "";
         var timeStr = timeNumToString(timeNum) + note;
         td.appendChild(document.createTextNode(timeStr));
         tr.appendChild(td);
     }
+    return tds;
+}
+
+function getElementsInElements(container, tag1, tag2) {
+    var children = [].slice.call(container.getElementsByTagName(tag1)),
+        nodes = [];
+
+    children.forEach(function (child) {
+        [].slice.call(child.getElementsByTagName(tag2)).forEach(function (el) {
+            nodes.push(el);
+        });
+    });
+    return nodes;
 }
 
 // Fancy scrolling
@@ -301,16 +377,12 @@ function setupFancyScroll(container) {
         thWidth,
         maxTHWidth,
         minTHWidth = 58,
-        tbodies = [].slice.call(container.getElementsByTagName("tbody")),
-        ths = [];
+        ths = getElementsInElements(container, "tbody", "th");
 
-    tbodies.forEach(function (tbody) {
-        [].slice.call(tbody.getElementsByTagName("th")).forEach(function (th) {
-            ths.push(th);
-            var spacer = document.createElement("td");
-            spacer.className = "fancyscroll-spacer";
-            th.parentNode.insertBefore(spacer, th.nextSibling);
-        });
+    ths.forEach(function (th) {
+        var spacer = document.createElement("td");
+        spacer.className = "fancyscroll-spacer";
+        th.parentNode.insertBefore(spacer, th.nextSibling);
     });
 
     fancyScrollContainers.push(container);

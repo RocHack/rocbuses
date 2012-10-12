@@ -196,6 +196,10 @@ h2 {
     min-width: 0;
 }
 
+#schedules .schedule tbody td.upcoming {
+    background: yellow;
+}
+
 .schedule tbody tr:last-child td,
 .schedule tbody tr:last-child th
 {
