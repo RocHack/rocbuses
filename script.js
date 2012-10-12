@@ -3,13 +3,13 @@ function loadJSON(url, cb) {
     var r = new XMLHttpRequest();
     r.open("GET", url, true);
     r.onreadystatechange = function () {
+        var data;
         if (r.readyState != 4) return;
         try {
-            var data = JSON.parse(r.responseText);
+            data = JSON.parse(r.responseText);
         } finally {
             cb(data);
             delete r.onreadystatechange;
-            delete r;
         }
     };
     r.send(null);
@@ -42,7 +42,7 @@ function timeRangeToString(times) {
 
 // Day ranges are represented in the JSON by a string with characters from
 // the following string dayChars:
-var dayChars = "MTWRFSU";
+var dayChars = "UMTWRFSU";
 var dayNames = {
     M: "Monday",
     T: "Tuesday",
@@ -133,7 +133,7 @@ function highlightUpcomingStops() {
 
     schedule.forEach(function (route) {
         // Check if this route is for today
-        if (!isDayInString(now, route.days)) return;
+        if (route.days && !isDayInString(now, route.days)) return;
         route.directions.forEach(function (direction) {
             // Check if this route direction is for today
             if (direction.days && !isDayInString(now, direction.days)) return;
@@ -463,7 +463,7 @@ function setupFancyScroll(container) {
     container.addEventListener("touchmove", function onTouchMove(e) {
         // On old Android browsers, scroll events do not fire, unless we
         // set scrollLeft. Feature detect here if scroll event fired.
-        if (manualScroll == null) {
+        if (manualScroll === null) {
             setTimeout(function () {
                 manualScroll = !scrolled;
                 onTouchMove(e);

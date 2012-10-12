@@ -217,7 +217,7 @@ h2 {
 }
 
 .schedule td.pm {
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .schedule tfoot tr {
