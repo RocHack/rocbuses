@@ -64,6 +64,12 @@ function formatDaysString(days, timeOfDay) {
     return daysStr + (daysStr && timeStr ? ", " : "") + timeStr;
 }
 
+// Make a nice name for a line
+function formatLineName(line, days) {
+    return line[0].toUpperCase() + line.substr(1) + " Line" +
+        (days ? " " + formatDaysString(days) : "");
+}
+
 // Check if a date is fits into a date string.
 function isDayInString(date, dayStr) {
     // We consider the day to change at 3AM instead of midnight.
@@ -81,6 +87,7 @@ function scrollIntoViewIfNeeded(el) {
 var lines = "red green orange blue silver gold".split(" ");
 var currentLine;
 var currentScheduleEl;
+var schedulesEl = document.getElementById("schedules");
 var schedulesData;
 
 // Update Line on hash change
@@ -169,15 +176,44 @@ loadJSON("schedules.json", function (schedules) {
         return;
     }
     schedulesData = schedules;
-    var schedulesEl = document.getElementById("schedules");
-    for (var line in schedules) {
-        var scheduleEl = renderSchedule(line, schedules[line]);
+    renderSchedules();
+    setInterval(highlightUpcomingStops, 60000);
+});
+
+function renderSchedules() {
+    schedulesEl.innerHTML = "";
+    for (var line in schedulesData) {
+        var scheduleEl = renderSchedule(line, schedulesData[line]);
         schedulesEl.appendChild(scheduleEl);
     }
     onHashChange();
     highlightUpcomingStops();
-    setInterval(highlightUpcomingStops, 60000);
-});
+}
+
+var prefs = {
+    storage: window.localStorage || window.sessionStorage || {},
+    prefix: "rocbuses-",
+    set: function (key, value) {
+        this.storage[this.prefix+key] = value;
+    },
+    get: function (key) {
+        return this.storage[this.prefix+key];
+    }
+};
+
+var showAllDays = prefs.get("show-all-days");
+var toggleShowAllLink = document.getElementById("toggle-show-all-days");
+function updateShowAllLink() {
+    toggleShowAllLink.firstChild.nodeValue = showAllDays ? "Show today only" : "Show all days";
+}
+updateShowAllLink();
+toggleShowAllLink.addEventListener("click", function (e) {
+    showAllDays = !showAllDays;
+    prefs.set("show-all-days", showAllDays ? "1" : "");
+    updateShowAllLink();
+    renderSchedules();
+    e.preventDefault();
+}, false);
 
 // Update appcache if necessary
 if (window.applicationCache) {
@@ -192,14 +228,23 @@ function renderSchedule(line, schedule) {
     var scheduleEl = document.createElement("div");
     scheduleEl.className = "schedule";
     scheduleEl.id = line;
+    var now = new Date();
 
     // Loop through each table and generate it
     // appending it as we go.
     for (var i = 0; i < schedule.length; i++) {
         var route = schedule[i];
         if (!route.ignore) {
-            renderRoute(route, line, scheduleEl);
+            if (showAllDays || !route.days || isDayInString(now, route.days)) {
+                renderRoute(route, line, scheduleEl);
+            }
         }
+    }
+    if (!scheduleEl.firstChild) {
+        var note = document.createElement("h3");
+        note.className = "line_name not_running_today";
+        note.appendChild(document.createTextNode("No " + formatLineName(line) + " running today."));
+        scheduleEl.appendChild(note);
     }
     return scheduleEl;
 }
@@ -213,8 +258,7 @@ function renderRoute(data, line, container) {
     var table = document.createElement("table");
     
     // Insert route name and days
-    var name = line[0].toUpperCase() + line.substr(1) + " Line " +
-        formatDaysString(data.days);
+    var name = formatLineName(line, data.days);
     // Some routes specify a time range as well as days
     if (data.times) {
         name += ", " + timeRangeToString(data.times);
@@ -230,7 +274,10 @@ function renderRoute(data, line, container) {
     container.appendChild(title);
 
     if (data.directions) for (var i = 0; i < data.directions.length; i++) {
-        renderRouteDirection(data.directions[i], table);
+        var direction = data.directions[i];
+        if (showAllDays || !direction.days || isDayInString(new Date(), direction.days)) {
+            renderRouteDirection(direction, table);
+        }
     }
 
     // Add notes info

@@ -28,7 +28,13 @@ h2 {
     display: none;
 }
 
-#lines h2, .line_selected h2 {
+#toggle-show-all-days {
+    display: none;
+}
+
+#lines h2,
+.line_selected h2,
+.line_selected #toggle-show-all-days {
     display: block;
 }
 
@@ -143,6 +149,10 @@ h2 {
 
 .schedule h3.line_name {
     font-weight: 400;
+}
+
+.schedule h3.not_running_today {
+    text-align: center;
 }
 
 .schedule thead th {
