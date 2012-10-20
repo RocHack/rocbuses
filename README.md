@@ -6,6 +6,6 @@ By [RocHack](http://rochack.github.com/)
 
 ## Todo
 
-- Add a apple-touch-icon
+- Add an apple-touch-icon
 - Add "About" link or information
 - Scroll horizontally a certain percentage of screen width
