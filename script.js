@@ -73,8 +73,8 @@ function formatLineName(line, days) {
 // Check if a date is fits into a date string.
 function isDayInString(date, dayStr) {
     // We consider the day to change at 3AM instead of midnight.
-    date.setTime(date.getTime() - 3 * 3600000);
-    return ~dayStr.indexOf(dayChars[date.getDay()]);
+    var date2 = new Date(date - 3 * 3600000);
+    return dayStr.indexOf(dayChars[date2.getDay()]) != -1;
 }
 
 // Reveal an element by scrolling if it is out of view

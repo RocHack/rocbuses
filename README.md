@@ -6,7 +6,6 @@ By [RocHack](http://rochack.github.com/)
 
 ## Todo
 
-- Create a logo, favicon, apple-touch-icon
+- Add a apple-touch-icon
 - Add "About" link or information
-- Allow users to submit schedule corrections
 - Scroll horizontally a certain percentage of screen width
