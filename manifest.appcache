@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#r6
+#r7
 
 CACHE:
 
@@ -8,6 +8,10 @@ index.html
 schedules.json
 script.js
 style.css
+
+apple-touch-icon.png
+ur-bus.png
+favicon.ico
 
 http://www.google-analytics.com/ga.js
 
