@@ -22,7 +22,7 @@ function makeDate(arr) {
 
 // Make a string for a date or date range
 function makeDateString(arr) {
-    return makeDate(arr[0]).toDateString() +
+    return makeDate(arr[0]).toDateString() +                 
         (arr[1] ? "–" + makeDate(arr[1]).toDateString() : "");
 }
 
@@ -75,6 +75,14 @@ function isDayInString(date, dayStr) {
     // We consider the day to change at 3AM instead of midnight.
     var date2 = new Date(date - 3 * 3600000);
     return dayStr.indexOf(dayChars[date2.getDay()]) != -1;
+}
+
+// Check if a date is within a date range
+function isDateInRange(date, range) {
+    if (!range || range.length != 2) return true;
+    // Start day at 3AM instead of midnight.
+    var date2 = new Date(date - 3 * 3600000);
+    return makeDate(range[0]) < date2 && date2 < makeDate(range[1]);
 }
 
 // Reveal an element by scrolling if it is out of view
@@ -140,12 +148,14 @@ function highlightUpcomingStops() {
 
     schedule.forEach(function (route) {
         // Check if this route is for today
-        if (route.days && !isDayInString(now, route.days)) return;
+        if (route.noService ||
+            (route.days && !isDayInString(now, route.days))) return;
         route.directions.forEach(function (direction) {
             // Check if this route direction is for today
             if (direction.days && !isDayInString(now, direction.days)) return;
 
             direction.stops.forEach(function (stop) {
+                if (!stop.tds) return;
                 for (var i = 0; i < stop.times.length; i++) {
                     var timeNum = stop.times[i];
                     // Account for day change at 3:00 AM
@@ -235,10 +245,9 @@ function renderSchedule(line, schedule) {
     // appending it as we go.
     for (var i = 0; i < schedule.length; i++) {
         var route = schedule[i];
-        if (!route.ignore) {
-            if (showAllDays || !route.days || isDayInString(now, route.days)) {
-                renderRoute(route, line, scheduleEl);
-            }
+        if (!route.ignore &&
+            (showAllDays || !route.days || isDayInString(now, route.days))) {
+            renderRoute(route, line, scheduleEl);
         }
     }
     if (!scheduleEl.firstChild) {
@@ -291,11 +300,37 @@ function renderRoute(data, line, container) {
             notes.push(note);
         }
     }
+
+    var now = new Date();
+    var noService = false;
     if (data.effective) {
         notes.push("Effective " + makeDateString(data.effective));
+        if (!isDateInRange(now, data.effective)) {
+            noService = true;
+        }
     }
     if (data.no_service) {
         notes.push("No Service " + makeDateString(data.no_service));
+        if (isDateInRange(now, data.no_service)) {
+            noService = true;
+        }
+    }
+    data.noService = noService;
+
+    if (noService) {
+        // Hide the schedule and leave a link to show it.
+        table.className = "no_service";
+        var showLink = document.createElement("a");
+        showLink.appendChild(document.createTextNode("Show schedule"));
+        showLink.href = "";
+        showLink.addEventListener("click", function (e) {
+            // Show the schedule and hide this link.
+            e.preventDefault();
+            table.className = "";
+            showLink.parentNode.removeChild(showLink);
+            resetFancyScroll(routeEl);
+        }, false);
+        notes.push(showLink);
     }
 
     if (notes.length) {
@@ -306,7 +341,8 @@ function renderRoute(data, line, container) {
             var noteEl = document.createElement("td");
             noteEl.className = "note";
             noteEl.setAttribute("colspan", "100%");
-            noteEl.appendChild(document.createTextNode(note));
+            noteEl.appendChild(typeof note == "string" ?
+                document.createTextNode(note) : note);
             tr.appendChild(noteEl);
             tfoot.appendChild(tr);
         }

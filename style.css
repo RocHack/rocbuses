@@ -140,6 +140,14 @@ h2 {
     overflow: auto;
 }
 
+table.no_service {
+    width: 100%;
+}
+
+.no_service thead, .no_service tbody {
+    display: none;
+}
+
 .schedule h3 {
     text-align: left;
     font-size: 18px;
