@@ -9,3 +9,4 @@ By [RocHack](http://rochack.github.com/)
 - Add "About" link or information
 - Scroll horizontally a certain percentage of screen width
 - Hide schedules when it is their day but past all the stop times
+- Add reminder that there is no shuttle service on University holidays
