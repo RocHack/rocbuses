@@ -6,6 +6,6 @@ By [RocHack](http://rochack.github.com/)
 
 ## Todo
 
-- Add an apple-touch-icon
 - Add "About" link or information
 - Scroll horizontally a certain percentage of screen width
+- Hide schedules when it is their day but past all the stop times

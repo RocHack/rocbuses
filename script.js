@@ -204,7 +204,8 @@ var prefs = {
 var showAllDays = prefs.get("show-all-days");
 var toggleShowAllLink = document.getElementById("toggle-show-all-days");
 function updateShowAllLink() {
-    toggleShowAllLink.firstChild.nodeValue = showAllDays ? "Show today only" : "Show all days";
+    toggleShowAllLink.firstChild.nodeValue = showAllDays ?
+        "Show today only" : "Show all days";
 }
 updateShowAllLink();
 toggleShowAllLink.addEventListener("click", function (e) {
@@ -243,7 +244,8 @@ function renderSchedule(line, schedule) {
     if (!scheduleEl.firstChild) {
         var note = document.createElement("h3");
         note.className = "line_name not_running_today";
-        note.appendChild(document.createTextNode("No " + formatLineName(line) + " running today."));
+        note.appendChild(document.createTextNode(
+            "No " + formatLineName(line) + " running right now."));
         scheduleEl.appendChild(note);
     }
     return scheduleEl;
@@ -256,7 +258,7 @@ function renderRoute(data, line, container) {
 
     // Create the table
     var table = document.createElement("table");
-    
+
     // Insert route name and days
     var name = formatLineName(line, data.days);
     // Some routes specify a time range as well as days
@@ -275,7 +277,8 @@ function renderRoute(data, line, container) {
 
     if (data.directions) for (var i = 0; i < data.directions.length; i++) {
         var direction = data.directions[i];
-        if (showAllDays || !direction.days || isDayInString(new Date(), direction.days)) {
+        if (showAllDays || !direction.days ||
+                isDayInString(new Date(), direction.days)) {
             renderRouteDirection(direction, table);
         }
     }
@@ -516,7 +519,8 @@ function setupFancyScroll(container) {
                 if (manualScroll) {
                     onTouchMove(e);
                 } else {
-                    container.removeEventListener("touchmove", onTouchMove, false);
+                    container.removeEventListener("touchmove", onTouchMove,
+                        false);
                 }
             }, 10);
         } else if (manualScroll) {
