@@ -309,10 +309,19 @@ function renderRoute(data, line, container) {
             noService = true;
         }
     }
-    if (data.no_service) {
-        notes.push("No Service " + makeDateString(data.no_service));
-        if (isDateInRange(now, data.no_service)) {
-            noService = true;
+    if (data.no_service && data.no_service[0]) {
+        // Show only the first no-service range that is not past
+        var noServiceRanges = data.no_service.filter(function (dateRange) {
+            var end = makeDate(dateRange[1]);
+            return end > now;
+        });
+
+        if (noServiceRanges.length) {
+            notes.push("No Service " + makeDateString(noServiceRanges[0]));
+            if (makeDate(noServiceRanges[0][0]) < now) {
+                // We are within this range
+                noService = true;
+            }
         }
     }
     data.noService = noService;

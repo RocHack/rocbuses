@@ -585,7 +585,10 @@
 {
     "title": "River Campus to Public Market",
     "days": "S",
-    "no_service": [[2012, 10, 11], [2013, 2, 8]],
+    "no_service": [
+        [[2012, 10, 11], [2013, 2, 8]],
+        [[2013, 4, 19], [2013, 7, 30]]
+    ],
     "directions": [{
         "title": "Bus Leaves River Campus to Public Market",
         "stops": [
