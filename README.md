@@ -2,7 +2,7 @@
 
 Yet another shuttle bus schedule site for University of Rochester
 
-By [RocHack](http://rochack.github.com/)
+By [RocHack](http://rochack.org/)
 
 ## Todo
 
