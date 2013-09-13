@@ -243,8 +243,8 @@ function renderSchedule(line, schedule) {
 
     // Loop through each table and generate it
     // appending it as we go.
-    for (var i = 0; i < schedule.length; i++) {
-        var route = schedule[i];
+    for (var i = 0; i < schedule.routes.length; i++) {
+        var route = schedule.routes[i];
         if (!route.ignore &&
             (showAllDays || !route.days || isDayInString(now, route.days))) {
             renderRoute(route, line, scheduleEl);

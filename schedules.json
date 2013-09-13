@@ -1,6 +1,8 @@
-{"red": [
+{"red": {
+	"source": "https://rochester.edu/parking/assets/pdf/RedlineFALL2013R.pdf",
+	"routes": [
 {
-    "title": "Eastman Living Center to Rush Rhees Library direct",
+    "title": "Eastman Living Center to Rush Rhees Library Direct",
     "days": "MTWRF",
     "directions": [{
         "title": "Bus Leaves Eastman Living Center to Rush Rhees Library",
@@ -33,9 +35,11 @@
         ]
     }]
 }
-],
+]
+},
 
-"blue": [
+"blue": {
+	"routes": [
 {
     "title": "River Campus to Whipple Park",
     "days": "S",
@@ -439,9 +443,11 @@
         ]
     }]
 }
-],
+]
+},
 
-"green": [
+"green": {
+	"routes": [
 {
     "title": "River Campus to Pittsford Plaza",
     "days": "U",
@@ -695,9 +701,11 @@
         ]
     }]
 }
-],
+]
+},
 
-"orange": [
+"orange": {
+	"routes": [
 {
     "title": "Rush Rhees Library to Downtown Housing",
     "days": "MTWRF",
@@ -1015,9 +1023,11 @@
         ]
     }]
 }
-],
+]
+},
 
-"silver": [
+"silver": {
+	"routes": [
 {
     "title": "Park Lot–Hopeman Engineering Building–Rush Rhees Library",
     "days": "MTWRF",
@@ -1073,9 +1083,11 @@
         ]
     }]
 }
-],
+]
+},
 
-"gold": [
+"gold": {
+	"routes": [
 {
     "title": "Rush Rhees Library to Riverview Apartments Direct",
     "days": "MTWRF",
@@ -1381,4 +1393,5 @@
 }
 
 ]
+}
 }
