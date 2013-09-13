@@ -359,6 +359,7 @@
 },
 
 "green": {
+	"source": "https://rochester.edu/parking/assets/pdf/GreenlineFALL2013R.pdf",
 	"routes": [
 {
 	"title": "River Campus to Pittsford Plaza",
@@ -504,9 +505,9 @@
 	"title": "River Campus to Public Market",
 	"days": "S",
 	"no_service": [
-		[[2012, 10, 11], [2013, 2, 8]],
-		[[2013, 4, 19], [2013, 7, 30]]
+		[[2013, 10, 10], [2014, 3, 7]]
 	],
+	"effective": [[2013, 7, 31], [2013, 10, 9]],
 	"directions": [{
 		"title": "Bus Leaves River Campus to Public Market",
 		"stops": [
@@ -617,63 +618,56 @@
 },
 
 "orange": {
+	"source": "https://rochester.edu/parking/assets/pdf/OrangelineFALL2013R.pdf",
 	"routes": [
 {
 	"title": "Rush Rhees Library to Downtown Housing",
 	"days": "MTWRF",
 	"directions": [{
-		"title": "Bus Leaves River Campus to Downtown Housing",
+		"title": "Bus Leaves Rush Rhees Library to Downtown Housing",
 		"days": "MTWRF",
 		"time_of_day": "am",
 		"stops": [
 			{
-				"place": "Rush Rhees Library",
-				"times": [null, 800, 835, 910, 945]
-			},
-			{
-				"place": "Towers",
-				"times": [null, 802, 837, 912, 947]
-			},
-			{
-				"place": "Gregory & South",
-				"times": [730, 806, 841, 916, 951]
-			},
-			{
-				"place": "South & Alexander",
-				"times": [732, 808, 843, 918, 953]
-			},
-			{
-				"place": "Monroe & Alexander",
-				"times": [734, 810, 845, 920, 955]
-			},
-			{
-				"place": "East & Alexander",
-				"times": [736, 812, 847, 922, 957]
-			},
-			{
-				"place": "East & Barrington",
-				"times": [740, 816, 851, 926, 1001]
+				"place": "Monroe & Goodman",
+				"times": [730, 810, 850, 930, 1010]
 			},
 			{
 				"place": "Park & Culver",
-				"times": [743, 819, 854, 929, 1004]
+				"times": [734, 814, 854, 934, 1014]
 			},
 			{
-				"place": "Monroe & Goodman",
-				"times": [747, 823, 858, 933, 1008]
+				"place": "East & Barrington",
+				"times": [738, 818, 858, 938, 1018]
+			},
+			{
+				"place": "East & Alexander",
+				"times": [741, 821, 901, 941, 1021]
+			},
+			{
+				"place": "Monroe & Alexander",
+				"times": [743, 823, 903, 943, 1023]
+			},
+			{
+				"place": "South & Alexander",
+				"times": [745, 825, 905, 945, 1025]
+			},
+			{
+				"place": "Gregory & South",
+				"times": [748, 828, 908, 948, 1028]
 			},
 			{
 				"place": "Mt. Hope & McLean",
-				"times": [757, 833, 908, 943, 1018]
+				"times": [752, 832, 912, 952, 1032]
 			},
 			{
 				"place": "Rush Rhees Library",
-				"times": [800, 835, 910, 945, 1020]
+				"times": [755, 835, 915, 955, 1035]
 			}
 		]
 	},
 	{
-		"title": "Bus Leaves River Campus to Downtown Housing",
+		"title": "Bus Leaves Rush Rhees Library to Downtown Housing",
 		"days": "MTW",
 		"time_of_day": "pm",
 		"stops": [
@@ -691,35 +685,35 @@
 			},
 			{
 				"place": "South & Alexander",
-				"times": [1638, 1718, 1753, 1828, 1918, 2008, 2058, 2148, 2238]
+				"times": [1639, 1719, 1754, 1829, 1919, 2009, 2059, 2149, 2239]
 			},
 			{
 				"place": "Monroe & Alexander",
-				"times": [1645, 1720, 1755, 1830, 1920, 2010, 2100, 2150, 2240]
-			},
-			{
-				"place": "East & Alexander",
-				"times": [1647, 1722, 1757, 1832, 1922, 2012, 2102, 2152, 2242]
-			},
-			{
-				"place": "Eastman Living Center",
-				"times": [null, null, null, 1842, 1932, 2022, 2112, 2202, 2252]
-			},
-			{
-				"place": "East & Barrington",
-				"times": [1650, 1726, 1801, 1852, 1942, 2032, 2122, 2212, 2302]
-			},
-			{
-				"place": "Park & Culver",
-				"times": [1654, 1729, 1804, 1855, 1945, 2035, 2125, 2215, 2305]
+				"times": [1641, 1721, 1756, 1831, 1921, 2011, 2101, 2151, 2241]
 			},
 			{
 				"place": "Monroe & Goodman",
-				"times": [1658, 1733, 1808, 1859, 1949, 2039, 2129, 2219, 2309]
+				"times": [1643, 1723, 1758, 1833, 1923, 2013, 2103, 2153, 2243]
+			},
+			{
+				"place": "Park & Culver",
+				"times": [1647, 1727, 1802, 1837, 1927, 2017, 2107, 2157, 2247]
+			},
+			{
+				"place": "East & Barrington",
+				"times": [1651, 1731, 1806, 1841, 1931, 2021, 2111, 2201, 2251]
+			},
+			{
+				"place": "East & Alexander",
+				"times": [1654, 1734, 1809, 1844, 1934, 2024, 2114, 2204, 2254]
+			},
+			{
+				"place": "Eastman Living Center",
+				"times": [null, null, null, 1850, 1940, 2030, 2120, 2210, 2300]
 			},
 			{
 				"place": "Mt. Hope & McLean",
-				"times": [1708, 1743, 1818, 1908, 1958, 2048, 2138, 2228, 2318]
+				"times": [1708, 1743, 1818, 1900, 1950, 2040, 2130, 2220, 2310]
 			},
 			{
 				"place": "Rush Rhees Library",
@@ -749,43 +743,43 @@
 			},
 			{
 				"place": "South & Alexander",
-				"times": [1638, 1718, 1753, 1828, 1918, 2008, 2058, 2148, 2238,
-				3, 128]
+				"times": [1639, 1719, 1754, 1829, 1919, 2009, 2059, 2149, 2239,
+				4, 129]
 			},
 			{
 				"place": "Monroe & Alexander",
-				"times": [1645, 1720, 1755, 1830, 1920, 2010, 2100, 2150, 2240,
-				5, 130]
-			},
-			{
-				"place": "East & Alexander",
-				"times": [1647, 1722, 1757, 1832, 1922, 2012, 2102, 2152, 2242,
-				7, 132]
-			},
-			{
-				"place": "Eastman Living Center",
-				"times": [null, null, null, 1842, 1932, 2022, 2112, 2202, 2252,
-				17, 142]
-			},
-			{
-				"place": "East & Barrington",
-				"times": [1650, 1726, 1801, 1852, 1942, 2032, 2122, 2212, 2302,
-				27, 152]
-			},
-			{
-				"place": "Park & Culver",
-				"times": [1654, 1729, 1804, 1855, 1945, 2035, 2125, 2215, 2305,
-				30, 155]
+				"times": [1641, 1721, 1756, 1831, 1921, 2011, 2101, 2151, 2241,
+				6, 131]
 			},
 			{
 				"place": "Monroe & Goodman",
-				"times": [1658, 1733, 1808, 1859, 1949, 2039, 2129, 2219, 2309,
-				34, 159]
+				"times": [1643, 1723, 1758, 1833, 1923, 2013, 2103, 2153, 2243,
+				8, 133]
+			},
+			{
+				"place": "Park & Culver",
+				"times": [1647, 1727, 1802, 1837, 1927, 2017, 2107, 2157, 2247,
+				12, 137]
+			},
+			{
+				"place": "East & Barrington",
+				"times": [1651, 1731, 1806, 1841, 1931, 2021, 2111, 2201, 2251,
+				16, 141]
+			},
+			{
+				"place": "East & Alexander",
+				"times": [1654, 1734, 1809, 1844, 1934, 2024, 2114, 2204, 2254,
+				19, 144]
+			},
+			{
+				"place": "Eastman Living Center",
+				"times": [null, null, null, 1850, 1940, 2030, 2120, 2210, 2300,
+				25, 150]
 			},
 			{
 				"place": "Mt. Hope & McLean",
-				"times": [1708, 1743, 1818, 1908, 1958, 2048, 2138, 2228, 2318,
-				43, 208]
+				"times": [1708, 1743, 1818, 1900, 1950, 2040, 2130, 2220, 2310,
+				35, 200]
 			},
 			{
 				"place": "Rush Rhees Library",
@@ -939,6 +933,7 @@
 },
 
 "silver": {
+	"source": "https://rochester.edu/parking/assets/pdf/SilverlineFALL2013R.pdf",
 	"routes": [
 {
 	"title": "Park Lot–Hopeman Engineering Building–Rush Rhees Library",
@@ -999,11 +994,15 @@
 },
 
 "gold": {
+	"source": "https://rochester.edu/parking/assets/pdf/GoldlineFALL2013R.pdf",
 	"routes": [
 {
 	"title": "Rush Rhees Library to Riverview Apartments Direct",
 	"days": "MTWRF",
 	"times": [730, 1700],
+	"notes": {
+		"* ": "The Riverview Apartments stop is at Building C only"
+	},
 	"directions": [{
 		"stops": [
 			{
@@ -1013,7 +1012,7 @@
 				1400, 1420, 1440, 1500, 1520, 1540, 1600, 1620, 1640, 1700]
 			},
 			{
-				"place": "Riverview Apartments",
+				"place": "Riverview Apartments *",
 				"times": [730, 750, 810, 830, 850, 910, 930, 950, 1010, 1030,
 				1050, 1110, 1130, 1150, 1210, 1230, 1250, 1310, 1330, 1350,
 				1410, 1430, 1450, 1510, 1530, 1550, 1610, 1630, 1650]
@@ -1164,7 +1163,7 @@
 {
 	"title": "River Campus to 19th Ward via Riverview Apartments",
 	"days": "MTW",
-	"times": [1800, 200],
+	"times": [1700, 100],
 	"directions": [{
 		"title": "Bus Leaves Rush Rhees Library to 19th Ward",
 		"stops": [
@@ -1280,7 +1279,7 @@
 {
 	"title": "Rush Rhees Library to Riverview Apartments Direct",
 	"days": "SU",
-	"effective": [[2013, 0, 19], [2013, 2, 17]],
+	"effective": [[2014, 0, 19], [2014, 2, 17]],
 	"times": [1300, 1700],
 	"directions": [{
 		"title": "Riverview apartment building C only",

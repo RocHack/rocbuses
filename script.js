@@ -146,7 +146,7 @@ function highlightUpcomingStops() {
     // Get selected line schedule (array of routes).
     var schedule = schedulesData[currentLine];
 
-    schedule.forEach(function (route) {
+    schedule.routes.forEach(function (route) {
         // Check if this route is for today
         if (route.noService ||
             (route.days && !isDayInString(now, route.days))) return;
@@ -296,7 +296,9 @@ function renderRoute(data, line, container) {
     var notes = [];
     if (data.notes) {
         for (var indicator in data.notes) {
-            var note = indicator + " indicates " + data.notes[indicator];
+			var prefix = indicator + " " +
+				(indicator.length == 1 ? "indicates " : "");
+            var note = prefix + data.notes[indicator];
             notes.push(note);
         }
     }
