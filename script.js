@@ -22,7 +22,7 @@ function makeDate(arr) {
 
 // Make a string for a date or date range
 function makeDateString(arr) {
-    return makeDate(arr[0]).toDateString() +                 
+    return makeDate(arr[0]).toDateString() +
         (arr[1] ? "–" + makeDate(arr[1]).toDateString() : "");
 }
 
@@ -262,6 +262,8 @@ function renderSchedule(line, schedule) {
 
 // Create and insert a table for a route
 function renderRoute(data, line, container) {
+    var i, note;
+
     var routeEl = document.createElement("div");
     routeEl.className = "route";
 
@@ -284,7 +286,7 @@ function renderRoute(data, line, container) {
     title.appendChild(document.createTextNode(data.title));
     container.appendChild(title);
 
-    if (data.directions) for (var i = 0; i < data.directions.length; i++) {
+    for (i = 0; i < (data.directions || 0).length; i++) {
         var direction = data.directions[i];
         if (showAllDays || !direction.days ||
                 isDayInString(new Date(), direction.days)) {
@@ -296,9 +298,9 @@ function renderRoute(data, line, container) {
     var notes = [];
     if (data.notes) {
         for (var indicator in data.notes) {
-			var prefix = indicator + " " +
-				(indicator.length == 1 ? "indicates " : "");
-            var note = prefix + data.notes[indicator];
+            var prefix = indicator + " " +
+                (indicator.length == 1 ? "indicates " : "");
+            note = prefix + data.notes[indicator];
             notes.push(note);
         }
     }
@@ -346,9 +348,9 @@ function renderRoute(data, line, container) {
 
     if (notes.length) {
         var tfoot = document.createElement("tfoot");
-        for (var i = 0; i < notes.length; i++) {
-            var note = notes[i];
-            tr = document.createElement("tr");
+        for (i = 0; i < notes.length; i++) {
+            note = notes[i];
+            var tr = document.createElement("tr");
             var noteEl = document.createElement("td");
             noteEl.className = "note";
             noteEl.setAttribute("colspan", "100%");
@@ -366,6 +368,8 @@ function renderRoute(data, line, container) {
 }
 
 function renderRouteDirection(data, table) {
+    var i, tr, th;
+
     // Create tbody
     var tbody = document.createElement("tbody");
 
@@ -379,10 +383,10 @@ function renderRouteDirection(data, table) {
     }
     if (headings.length) {
         var thead = document.createElement("thead");
-        for (var i = 0; i < headings.length; i++) {
+        for (i = 0; i < headings.length; i++) {
             var heading = headings[i];
-            var tr = document.createElement("tr");
-            var th = document.createElement("th");
+            tr = document.createElement("tr");
+            th = document.createElement("th");
             th.setAttribute("colspan", "100%");
             var header = document.createElement("h4");
             header.appendChild(document.createTextNode(heading));
@@ -394,12 +398,12 @@ function renderRouteDirection(data, table) {
     }
 
     // Loop through destinations
-    for (var i = 0; i < data.stops.length; i++) {
+    for (i = 0; i < data.stops.length; i++) {
         var stop = data.stops[i];
-        var tr = document.createElement("tr");
+        tr = document.createElement("tr");
 
         // Add destination name
-        var th = document.createElement("th");
+        th = document.createElement("th");
         th.appendChild(document.createTextNode(stop.place));
         tr.appendChild(th);
 
@@ -524,7 +528,7 @@ function setupFancyScroll(container) {
     container._reflow = reflow;
 
     var scrolled = false;
-    container.addEventListener("scroll", function (e) {
+    container.addEventListener("scroll", function () {
         scrolled = true;
         if (reflowed) {
             updateScrolling();
@@ -534,7 +538,7 @@ function setupFancyScroll(container) {
         }
     }, false);
 
-    container._reset = function (scheduleEl) {
+    container._reset = function () {
         ths.forEach(resetTH);
         scrollLeftSaved = container.scrollLeft;
         container.scrollLeft = 0;
