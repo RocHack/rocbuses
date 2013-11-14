@@ -216,14 +216,19 @@ function updateShowAllLink() {
     toggleShowAllLink.firstChild.nodeValue = showAllDays ?
         "Show today only" : "Show all days";
 }
-updateShowAllLink();
-toggleShowAllLink.addEventListener("click", function (e) {
-    showAllDays = !showAllDays;
-    prefs.set("show-all-days", showAllDays ? "1" : "");
+if (toggleShowAllLink) {
+    toggleShowAllLink.addEventListener("click", function (e) {
+        showAllDays = !showAllDays;
+        prefs.set("show-all-days", showAllDays ? "1" : "");
+        updateShowAllLink();
+        renderSchedules();
+        e.preventDefault();
+    }, false);
     updateShowAllLink();
-    renderSchedules();
-    e.preventDefault();
-}, false);
+} else {
+    // If there is no toggle link, always show all days.
+    showAllDays = true;
+}
 
 // Update appcache if necessary
 if (window.applicationCache) {
