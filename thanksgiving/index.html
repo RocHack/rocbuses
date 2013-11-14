@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>UR Bus Schedules</title>
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link rel="stylesheet" type="text/css" href="../style.css" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+        <meta property="og:title" content="RocBuses Thanksgiving" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://rochack.org/rocbuses/thanksgiving/" />
+        <meta property="og:image" content="http://rochack.org/rocbuses/ur-bus.png" />
+        <meta property="og:site_name" content="RocHack" />
+        <meta property="fb:admins" content="1361520039" />
+        <meta property="og:description" content="UR Shuttle Schedules: Thanksgiving 2013" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>UR bus schedules</h1>
+
+            <div id="lines">
+                <h2>Select a line:</h2>
+                <a class="line_box line_airport" href="#airport"></a>
+                <a class="line_box line_amtrak" href="#amtrak"></a>
+                <a class="line_box line_trailways" href="#trailways"></a>
+            </div>
+
+            <h2>Schedule</h2>
+            <div id="schedules"></div>
+            <p><a href="" id="toggle-show-all-days">Show all days</a></p>
+
+            <p><a href="mailto:feedback@rochack.org?Subject=Thanksgiving%20Bus%20Feedback">Send us feedback</a></p>
+        </div>
+		<script>
+		window.onload = function() {
+			var element = document.createElement("script");
+			element.src = "../script.js";
+			document.body.appendChild(element);
+		};
+		</script>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-35584323-2']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+    </body>
+</html>

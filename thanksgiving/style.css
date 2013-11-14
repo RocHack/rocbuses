@@ -1,0 +1,38 @@
+.line_airport {
+    background: #D60021;
+}
+
+#airport .line_name,
+#airport h4 {
+    color: #D60021;
+}
+
+#airport tbody td:nth-child(2n+1) {
+    background: #FAC6C8;
+}
+
+.line_amtrak {
+    background: #1C9B41;
+}
+
+#amtrak .line_name,
+#amtrak h4 {
+    color: #1C9B41;
+}
+
+#amtrak tbody td:nth-child(2n+1) {
+    background: #C9EEC9;
+}
+
+.line_trailways {
+    background: #1469B1;
+}
+
+#trailways .line_name,
+#trailways h4 {
+    color: #1469B1;
+}
+
+#trailways tbody td:nth-child(2n+1) {
+    background: #CBE5F2;
+}

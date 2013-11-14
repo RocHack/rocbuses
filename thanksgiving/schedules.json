@@ -1,0 +1,181 @@
+{
+"airport": {
+	"source": "http://sa.rochester.edu/thanksgiving/",
+	"routes": [
+{
+	"title": "Airport Shuttle",
+	"days": "T",
+	"directions": [{
+		"title": "Bus Leaves Southside to Airport, Tuesday, Nov 26",
+		"stops": [
+			{
+				"place": "Southside",
+				"times": [1600, 1640, 1720, 1800, 1840]
+			},
+			{
+				"place": "Towers",
+				"times": [1605, 1645, 1725, 1805, 1845]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1610, 1650, 1730, 1810, 1850]
+			},
+			{
+				"place": "Arrive at Airport",
+				"times": [1625, 1705, 1745, 1825, 1905]
+			}
+		]
+	}]
+},
+
+{
+	"title": "Airport Shuttle",
+	"days": "W",
+	"directions": [{
+		"title": "Bus Leaves Southside to Airport, Wednesday, Nov 27",
+		"stops": [
+			{
+				"place": "Southside",
+				"times": [1000, 1040, 1120, 1200, 1240, 1400, 1440, 1520, 1600,
+				1640]
+			},
+			{
+				"place": "Towers",
+				"times": [1005, 1045, 1125, 1205, 1245, 1405, 1445, 1525, 1605,
+				1645]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1010, 1050, 1130, 1210, 1250, 1410, 1450, 1530, 1610,
+				1650]
+			},
+			{
+				"place": "Arrive at Airport",
+				"times": [1025, 1105, 1145, 1225, 1305, 1425, 1505, 1545, 1625,
+				1705]
+			}
+		]
+	}]
+},
+{
+	"title": "Airport Shuttle",
+	"days": "U",
+	"directions": [{
+		"title": "Bus Leaves Airport, Sunday, Dec 1",
+		"stops": [
+			{
+				"place": "Depart Airport",
+				"times": [1400, 1520, 1600, 1640, 1720, 1800, 1920, 2000, 2040, 2120]
+			},
+			{
+				"place": "Southside",
+				"times": [1415, 1535, 1615, 1655, 1735, 1815, 1935, 2015, 2055, 2135]
+			},
+			{
+				"place": "Towers",
+				"times": [1420, 1540, 1620, 1700, 1740, 1820, 1940, 2020, 2100, 2140]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1425, 1545, 1625, 1705, 1745, 1825, 1945, 2025, 2105, 2145]
+			}
+		]
+	}]
+}
+	]
+},
+
+"amtrak": {
+	"source": "http://sa.rochester.edu/thanksgiving/",
+	"routes": [
+{
+	"title": "Amtrak Shuttle",
+	"days": "W",
+	"directions": [{
+		"title": "Bus Leaves Southside to Amtrak Station, Wed Nov 27",
+		"stops": [
+			{
+				"place": "Southside",
+				"times": [905, 1320]
+			},
+			{
+				"place": "Towers",
+				"times": [910, 1325]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [915, 1330]
+			},
+			{
+				"place": "Arrive at Amtrak",
+				"times": [930, 1345]
+			}
+		]
+	},
+	{
+		"title": "Amtrak to Rush Rhees, Sunday Dec 1",
+		"stops": [
+			{
+				"place": "Depart Amtrak",
+				"times": [1440, 1840]
+			},
+			{
+				"place": "Southside",
+				"times": [1455, 1855]
+			},
+			{
+				"place": "Towers",
+				"times": [1500, 1900]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1505, 1905]
+			}
+		]
+	}]
+}
+]
+},
+
+"trailways": {
+	"source": "http://sa.rochester.edu/thanksgiving/",
+	"routes": [
+{
+	"title": "Trailways Bus Shuttle Schedule",
+	"days": "TW",
+	"directions": [{
+		"title": "Tuesday Nov 26, Wednesday Nov 27",
+		"stops": [
+			{
+				"place": "Rush Rhees",
+				"times": [1235, 1420, 1620]
+			},
+			{
+				"place": "Arrive at Trailways",
+				"times": [1245, 1430, 1630]
+			}
+		]
+	}]
+},
+
+{
+	"title": "Trailways Bus Shuttle Schedule",
+	"days": "U",
+	"directions": [{
+		"title": "Sunday Dec 1",
+		"stops": [
+			{
+				"place": "Depart from Trailways",
+				"times": [1700, 2145]
+			},
+			{
+				"place": "Rush Rhees",
+				"times": [1715, 2200]
+			}
+		]
+	}]
+}
+]
+
+}
+}
