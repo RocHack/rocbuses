@@ -92,16 +92,15 @@ function scrollIntoViewIfNeeded(el) {
     }
 }
 
-var lines = "red green orange blue silver gold".split(" ");
 var currentLine;
 var currentScheduleEl;
 var schedulesEl = document.getElementById("schedules");
-var schedulesData;
+var schedulesData = {};
 
 // Update Line on hash change
 function onHashChange() {
     var line = location.hash.substr(1);
-    var isLine = (lines.indexOf(line) != -1);
+    var isLine = line in schedulesData;
     var scheduleEl = document.getElementById(line);
 
     // Update styles
