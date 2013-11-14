@@ -3,7 +3,7 @@
 	"source": "http://sa.rochester.edu/thanksgiving/",
 	"routes": [
 {
-	"title": "Airport Shuttle, Tuesday, Nov 26",
+	"name": "Airport Shuttle, Tuesday, Nov 26",
 	"days": "T",
 	"directions": [{
 		"title": "Bus Leaves Southside to Airport",
@@ -29,7 +29,7 @@
 },
 
 {
-	"title": "Airport Shuttle, Wednesday, Nov 27",
+	"name": "Airport Shuttle, Wednesday, Nov 27",
 	"days": "W",
 	"directions": [{
 		"title": "Bus Leaves Southside to Airport",
@@ -58,10 +58,10 @@
 	}]
 },
 {
-	"title": "Airport Shuttle Sunday, Dec 1",
+	"name": "Airport Shuttle, Sunday, Dec 1",
 	"days": "U",
 	"directions": [{
-		"title": "Bus Leaves Airport,",
+		"title": "Bus Leaves Airport",
 		"stops": [
 			{
 				"place": "Depart Airport",
@@ -93,10 +93,10 @@
 	"source": "http://sa.rochester.edu/thanksgiving/",
 	"routes": [
 {
-	"title": "Amtrak Shuttle",
+	"name": "Amtrak Shuttle, Wednesday Nov 27",
 	"days": "WU",
 	"directions": [{
-		"title": "Bus Leaves Southside to Amtrak Station, Wed Nov 27",
+		"title": "Bus Leaves Southside to Amtrak Station",
 		"stops": [
 			{
 				"place": "Southside",
@@ -115,9 +115,13 @@
 				"times": [930, 1345]
 			}
 		]
-	},
-	{
-		"title": "Amtrak to Rush Rhees, Sunday Dec 1",
+	}]
+},
+{
+	"name": "Amtrak Shuttle, Sunday Dec 1",
+	"days": "WU",
+	"directions": [{
+		"title": "Amtrak to Rush Rhees",
 		"stops": [
 			{
 				"place": "Depart Amtrak",
@@ -145,7 +149,7 @@
 	"source": "http://sa.rochester.edu/thanksgiving/",
 	"routes": [
 {
-	"title": "Trailways Bus Shuttle Schedule",
+	"name": "Trailways Bus Shuttle",
 	"days": "TW",
 	"directions": [{
 		"title": "Tuesday Nov 26, Wednesday Nov 27",
@@ -163,7 +167,7 @@
 },
 
 {
-	"title": "Trailways Bus Shuttle Schedule",
+	"name": "Trailways Bus Shuttle",
 	"days": "U",
 	"directions": [{
 		"title": "Sunday Dec 1",
