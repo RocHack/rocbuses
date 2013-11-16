@@ -2,6 +2,36 @@
     max-width: 45em;
 }
 
+.top_link {
+    vertical-align: top;
+}
+
+#rochack_link a {
+    color: #555;
+    font-size: 75%;
+}
+
+#rochack_link img {
+    height: 2.66em;
+    padding-right: 1ex;
+}
+
+.top_link img {
+    height: 2em;
+    vertical-align: middle;
+}
+
+.top_link_left {
+    float: left;
+}
+
+.top_link_right {
+    float: right;
+}
+
+
+/* Thanksgiving shuttles */
+
 .line_box {
     vertical-align: middle;
     line-height: 75px;
