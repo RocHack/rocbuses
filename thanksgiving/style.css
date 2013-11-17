@@ -1,3 +1,9 @@
+@media only screen and (min-width: 600px) {
+    h1 {
+        padding-top: 1em;
+    }
+}
+
 .container {
     max-width: 45em;
 }
