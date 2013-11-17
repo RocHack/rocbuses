@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#r12
+#r13
 
 CACHE:
 
@@ -14,6 +14,18 @@ ur-bus.png
 favicon.png
 
 http://www.google-analytics.com/ga.js
+
+# Thanksgiving site
+
+thanksgiving/index.html
+thanksgiving/schedules.json
+thanksgiving/style.css
+
+thanksgiving/images/airport.png
+thanksgiving/images/amtrak.png
+thanksgiving/images/trailways.png
+thanksgiving/images/meliora.png
+thanksgiving/images/sa.png
 
 NETWORK:
 *
