@@ -1,0 +1,90 @@
+@media only screen and (min-width: 600px) {
+    h1 {
+        padding-top: 1em;
+    }
+}
+
+.container {
+    max-width: 45em;
+}
+
+.top_link {
+    vertical-align: top;
+}
+
+#rochack_link a {
+    color: #555;
+    font-size: 75%;
+}
+
+#rochack_link img {
+    height: 2.66em;
+    padding-right: 1ex;
+}
+
+.top_link img {
+    height: 2em;
+    vertical-align: middle;
+}
+
+.top_link_left {
+    float: left;
+}
+
+.top_link_right {
+    float: right;
+}
+
+
+/* Thanksgiving shuttles */
+
+.line_box {
+    vertical-align: middle;
+    line-height: 75px;
+    margin: 0.25em;
+}
+
+.line_box img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.line_airport {
+    background: #1469B1;
+}
+
+#airport .line_name,
+#airport h4 {
+    color: #1469b1;
+}
+
+#airport tbody td:nth-child(2n+1) {
+    background: #dfe8f8;
+}
+
+.line_amtrak {
+    background: #ffef35;
+}
+
+#amtrak .line_name,
+#amtrak h4 {
+    color: #04a5e4;
+}
+
+#amtrak tbody td:nth-child(2n+1) {
+    background: #ffee93;
+}
+
+.line_trailways {
+    background: #23a503;
+}
+
+#trailways .line_name,
+#trailways h4 {
+    color: #17a00b;
+}
+
+#trailways tbody td:nth-child(2n+1) {
+    background: #fac6c8;
+}

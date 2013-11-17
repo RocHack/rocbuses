@@ -216,14 +216,19 @@ function updateShowAllLink() {
     toggleShowAllLink.firstChild.nodeValue = showAllDays ?
         "Show today only" : "Show all days";
 }
-updateShowAllLink();
-toggleShowAllLink.addEventListener("click", function (e) {
-    showAllDays = !showAllDays;
-    prefs.set("show-all-days", showAllDays ? "1" : "");
+if (toggleShowAllLink) {
+    toggleShowAllLink.addEventListener("click", function (e) {
+        showAllDays = !showAllDays;
+        prefs.set("show-all-days", showAllDays ? "1" : "");
+        updateShowAllLink();
+        renderSchedules();
+        e.preventDefault();
+    }, false);
     updateShowAllLink();
-    renderSchedules();
-    e.preventDefault();
-}, false);
+} else {
+    // If there is no toggle link, always show all days.
+    showAllDays = true;
+}
 
 // Update appcache if necessary
 if (window.applicationCache) {
@@ -270,10 +275,14 @@ function renderRoute(data, line, container) {
     var table = document.createElement("table");
 
     // Insert route name and days
-    var name = formatLineName(line, data.days);
-    // Some routes specify a time range as well as days
-    if (data.times) {
-        name += ", " + timeRangeToString(data.times);
+    var name = data.name;
+    if (!name) {
+        // Generate the name from line and days
+        name = formatLineName(line, data.days);
+        // Some routes specify a time range as well as days
+        if (data.times) {
+            name += ", " + timeRangeToString(data.times);
+        }
     }
     var h3 = document.createElement("h3");
     h3.className = "line_name";
@@ -281,9 +290,11 @@ function renderRoute(data, line, container) {
     container.appendChild(h3);
 
     // Insert title
-    var title = document.createElement("h3");
-    title.appendChild(document.createTextNode(data.title));
-    container.appendChild(title);
+    if (data.title) {
+        var title = document.createElement("h3");
+        title.appendChild(document.createTextNode(data.title));
+        container.appendChild(title);
+    }
 
     for (i = 0; i < (data.directions || 0).length; i++) {
         var direction = data.directions[i];
