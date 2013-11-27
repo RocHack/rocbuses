@@ -150,9 +150,9 @@
 	"routes": [
 {
 	"name": "Trailways Bus Shuttle",
-	"days": "TW",
+	"days": "T",
 	"directions": [{
-		"title": "Tuesday Nov 26, Wednesday Nov 27",
+		"title": "Tuesday Nov 26",
 		"stops": [
 			{
 				"place": "Rush Rhees",
@@ -174,11 +174,11 @@
 		"stops": [
 			{
 				"place": "Depart from Trailways",
-				"times": [1700, 2145]
+				"times": [1645, 2145]
 			},
 			{
 				"place": "Rush Rhees",
-				"times": [1715, 2200]
+				"times": [1700, 2200]
 			}
 		]
 	}]
