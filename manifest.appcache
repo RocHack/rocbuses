@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#r15
+#r16
 
 CACHE:
 
@@ -15,17 +15,17 @@ favicon.png
 
 https://www.google-analytics.com/ga.js
 
-# Thanksgiving site
+# Special schedules
 
-thanksgiving/index.html
-thanksgiving/schedules.json
-thanksgiving/style.css
+special/index.html
+special/schedules.json
+special/style.css
 
-thanksgiving/images/airport.png
-thanksgiving/images/amtrak.png
-thanksgiving/images/trailways.png
-thanksgiving/images/meliora.png
-thanksgiving/images/sa.png
+special/images/airport.png
+special/images/amtrak.png
+special/images/trailways.png
+special/images/meliora.png
+special/images/sa.png
 
 NETWORK:
 *

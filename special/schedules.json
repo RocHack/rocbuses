@@ -1,0 +1,217 @@
+{
+"airport": {
+	"source": "http://sa.rochester.edu/springbreak/",
+	"routes": [
+{
+	"name": "Airport Shuttle, Friday, March 7",
+	"days": "F",
+	"directions": [{
+		"title": "Bus Leaves Southside to Airport",
+		"stops": [
+			{
+				"place": "Southside",
+				"times": [1600, 1640, 1720, 1800, 1920]
+			},
+			{
+				"place": "Towers",
+				"times": [1605, 1645, 1725, 1805, 1925]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1610, 1650, 1730, 1810, 1930]
+			},
+			{
+				"place": "Arrive at Airport",
+				"times": [1625, 1705, 1745, 1825, 1945]
+			}
+		]
+	}]
+},
+
+{
+	"name": "Airport Shuttle, Saturday, March 8",
+	"days": "S",
+	"directions": [{
+		"title": "Bus Leaves Southside to Airport",
+		"stops": [
+			{
+				"place": "Southside",
+				"times": [1000, 1040, 1120, 1200, 1320, 1400, 1440, 1520, 1640,
+				1720, 1800, 1840]
+			},
+			{
+				"place": "Towers",
+				"times": [1005, 1045, 1125, 1205, 1325, 1405, 1445, 1525, 1645,
+				1725, 1805, 1845]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1010, 1050, 1130, 1210, 1330, 1410, 1450, 1530, 1650,
+				1730, 1810, 1850]
+			},
+			{
+				"place": "Arrive at Airport",
+				"times": [1025, 1105, 1145, 1225, 1345, 1425, 1505, 1545, 1705,
+				1745, 1825, 1905]
+			}
+		]
+	}]
+},
+
+{
+	"name": "Airport Shuttle, Sunday, March 16",
+	"days": "U",
+	"directions": [{
+		"title": "Bus Leaves Airport",
+		"stops": [
+			{
+				"place": "Depart Airport",
+				"times": [1350, 1510, 1550, 1630, 1750, 1830, 1910, 1950, 2110,
+				2150]
+			},
+			{
+				"place": "Southside",
+				"times": [1405, 1525, 1605, 1645, 1805, 1845, 1925, 2005, 2125,
+				2205]
+			},
+			{
+				"place": "Towers",
+				"times": [1410, 1530, 1610, 1650, 1810, 1850, 1930, 2010, 2130,
+				2210]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1415, 1535, 1615, 1655, 1815, 1855, 1935, 2015, 2135,
+				2215]
+			}
+		]
+	}]
+}
+	]
+},
+
+"amtrak": {
+	"source": "http://sa.rochester.edu/springbreak/",
+	"routes": [
+{
+	"name": "Amtrak Shuttle, Friday, March 7",
+	"days": "F",
+	"directions": [{
+		"title": "Bus Leaves Southside to Amtrak Station",
+		"stops": [
+			{
+				"place": "Southside",
+				"times": [1840]
+			},
+			{
+				"place": "Towers",
+				"times": [1845]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1850]
+			},
+			{
+				"place": "Arrive at Amtrak",
+				"times": [1905]
+			}
+		]
+	}]
+},
+
+{
+	"name": "Amtrak Shuttle, Saturday, March 8",
+	"days": "F",
+	"directions": [{
+		"title": "Bus Leaves Southside to Amtrak Station",
+		"stops": [
+			{
+				"place": "Southside",
+				"times": [910, 1240, 1600]
+			},
+			{
+				"place": "Towers",
+				"times": [915, 1245, 1605]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [920, 1250, 1610]
+			},
+			{
+				"place": "Arrive at Amtrak",
+				"times": [935, 1305, 1625]
+			}
+		]
+	}]
+},
+
+{
+	"name": "Amtrak Shuttle, Sunday, March 16",
+	"days": "U",
+	"directions": [{
+		"title": "Amtrak to Rush Rhees",
+		"stops": [
+			{
+				"place": "Depart Amtrak",
+				"times": [1430, 1710, 2030]
+			},
+			{
+				"place": "Southside",
+				"times": [1445, 1725, 2045]
+			},
+			{
+				"place": "Towers",
+				"times": [1450, 1730, 2050]
+			},
+			{
+				"place": "Rush Rhees Library",
+				"times": [1455, 1735, 2055]
+			}
+		]
+	}]
+}
+]
+},
+
+"trailways": {
+	"source": "http://sa.rochester.edu/springbreak/",
+	"routes": [
+{
+	"name": "Trailways Bus Shuttle, Friday, March 7",
+	"days": "F",
+	"directions": [{
+		"title": "Rush Rhees to Trailways Terminal",
+		"stops": [
+			{
+				"place": "Depart Rush Rhees",
+				"times": [1235, 1420, 1620]
+			},
+			{
+				"place": "Depart Trailways Terminal",
+				"times": [1300, 1450, 1640]
+			}
+		]
+	}]
+},
+
+{
+	"name": "Trailways Bus Shuttle, Sunday, March 16, 2014",
+	"days": "U",
+	"directions": [{
+		"title": "Trailways Terminal to Rush Rhees",
+		"stops": [
+			{
+				"place": "Depart from Trailways",
+				"times": [2145]
+			},
+			{
+				"place": "Arrive at Rush Rhees",
+				"times": [2200]
+			}
+		]
+	}]
+}
+]
+
+}
+}
