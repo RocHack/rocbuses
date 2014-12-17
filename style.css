@@ -79,6 +79,21 @@ h2 {
     background: #C9EEC9;
 }
 
+
+.line_purple {
+    background: #7736A3;
+}
+
+#purple .line_name,
+#purple h4 {
+    color: #7736A3;
+}
+
+#purple tbody td:nth-child(2n+1) {
+    background: #D8B0E8;
+}
+
+
 .line_blue {
     background: #1469B1;
 }
